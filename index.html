@@ -624,7 +624,18 @@
         min-height: 60px;
         margin-bottom: 30px;
     }
+        .price-card h3,
+    .price-card .price,
+    .price-card .teaser {
+        transition: color 0.3s ease;
+    }
 
+    .price-card:hover h3,
+    .price-card:hover .price,
+    .price-card:hover .teaser {
+        color: #fff; /* текст станет белым на ярком фоне */
+    }
+    
     /* ------------------------------------- */
     /* 7. СЕКЦИЯ FAQ */
     /* ------------------------------------- */
@@ -1019,17 +1030,6 @@
   <section id="how" class="reveal-item">
     <h2>Как это работает?</h2>
     <p>Мы предлагаем индивидуальный подход к каждому клиенту, обеспечивая прозрачность и эффективность на всех этапах разработки. Нажмите на шаг, чтобы узнать подробности!</p>
-    
-    <div class="how-stats reveal-item">
-        <div class="how-stat-block">
-            <h4>Мгновенный Отклик</h4>
-            <p>Ваш клиент получает ответ сразу, что повышает его лояльность.</p>
-        </div>
-        <div class="how-stat-block">
-            <h4>Точная Квалификация</h4>
-            <p>Бот собирает всю необходимую информацию, чтобы вы работали только с целевыми лидами.</p>
-        </div>
-    </div>
     
     <div class="steps">
       <div class="step reveal-item" onclick="openStepModal('stepModal1')">
