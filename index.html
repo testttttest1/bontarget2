@@ -558,8 +558,8 @@
     position: relative;
     width: 100%;
     max-width: 100%;
-    margin: 70px auto 40px auto;  /* ИЗМЕНЕНО: auto для центрирования */
-    padding: 0 15px;  /* ДОБАВЛЕНО: отступы по бокам */
+    margin: 70px 0 40px 0;
+    padding: 0;
 }
 
 /* Сама линия ползунка */
@@ -598,24 +598,14 @@
 /* Кастомный человечек НА линии */
 .custom-thumb-tracker {
     position: absolute;
-    
-    /* Корректировка вертикального положения для центровки на линии */
-    top: 25%; 
+    top: 50%; 
     left: 0;
-    
-    /* КЛЮЧЕВОЙ МОМЕНТ: Центрирует эмодзи относительно его точки 'left' (из JS) */
     transform: translate(-50%, -50%); 
-    
-    /* УВЕЛИЧЕННЫЙ РАЗМЕР ЭМОДЗИ */
     font-size: 60px;
-    
     z-index: 10;
-    /* Разрешаем клики для JS-логики перетаскивания */
     pointer-events: auto; 
-    /* Визуальный индикатор перетаскивания */
     cursor: grab; 
-    
-    transition: left 0.15s ease-out, transform 0.2s ease;
+    transition: none;
     user-select: none;
     filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
     line-height: 1;
@@ -732,10 +722,10 @@
 
 @media (max-width: 650px) {
     /* Адаптивная коррекция для ползунка на мобильных */
-    .custom-thumb-tracker {
-        font-size: 40px; 
-        top: 20%;    
-    }
+.custom-thumb-tracker {
+    font-size: 40px; 
+    top: 50%;    
+}
     .custom-thumb-tracker::before {
         width: 40px; 
         height: 40px;
@@ -1099,6 +1089,12 @@
     .custom-thumb-tracker {
         font-size: 50px;
     }
+
+    .slider-container {
+    width: 100%;
+    margin: 60px 0 35px 0;
+    padding: 0;
+}
 }
 
 /* MOBILE */
@@ -1241,6 +1237,12 @@
         .faq-answer.active {
             padding-bottom: 20px;
         }
+
+.slider-container {
+    width: 100%;
+    margin: 50px 0 30px 0;
+    padding: 0;
+}
     }
 
     @media (max-width: 480px) {
@@ -1686,13 +1688,11 @@ function updateCustomThumbPosition(slider) {
     const min = parseInt(slider.min, 10);
     const max = parseInt(slider.max, 10);
     
-    // Рассчитываем процент положения (от 0.0 до 1.0)
     const percent = (value - min) / (max - min);
     
-    const sliderWidth = slider.offsetWidth;
+    const sliderRect = slider.getBoundingClientRect();
+    const sliderWidth = sliderRect.width;
     
-    // КРИТИЧЕСКИ ВАЖНО: позиция = процент от полной ширины
-    // Это совпадет с justify-content: space-between у меток
     const position = percent * sliderWidth;
     
     tracker.style.left = `${position}px`;
