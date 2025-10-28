@@ -407,9 +407,9 @@
 .price-cards {
     display: flex;
     justify-content: center;
-    gap: 30px; /* Увеличенный разрыв */
+    gap: 30px;
     margin-top: 50px;
-    flex-wrap: wrap; 
+    flex-wrap: nowrap;
     padding: 0 10px;
 }
 
@@ -590,7 +590,7 @@
     position: absolute;
     
     /* Корректировка вертикального положения для центровки на линии */
-    top: 90%; 
+    top: 25%; 
     left: 0;
     
     /* КЛЮЧЕВОЙ МОМЕНТ: Центрирует эмодзи относительно его точки 'left' (из JS) */
@@ -709,6 +709,7 @@
         flex-direction: column; 
         align-items: center;
         gap: 25px;
+        flex-wrap: wrap; /* Добавлено: на мобильных разрешаем перенос */
     }
     .price-card {
         max-width: 100%;
@@ -1299,23 +1300,17 @@
                     Number of Locations/Bots: <span id="locationCount" style="color: var(--color-secondary); font-size: 1.5rem;">1</span>
                 </label>
                 
-                <input type="range" min="1" max="10" value="1" class="slider" id="locationSlider">
+                <input type="range" min="1" max="5" value="1" class="slider" id="locationSlider">
 
                 <div class="custom-thumb-tracker" id="locationSlider-tracker"></div>
                 
                 <div class="slider-labels">
-                    <span class="label-item">1</span>
-                    <span class="label-item mobile-hide-labels">2</span>
-                    <span class="label-item mobile-hide-labels">3</span>
-                    <span class="label-item mobile-hide-labels">4</span>
-                    <span class="label-item mobile-hide-labels">5</span>
-                    <span class="label-item mobile-hide-labels">6</span>
-                    <span class="label-item mobile-hide-labels">7</span>
-                    <span class="label-item mobile-hide-labels">8</span>
-                    <span class="label-item mobile-hide-labels">9</span>
-                    <span class="label-item">10+</span>
-                </div>
-            </div>
+    <span class="label-item">1</span>
+    <span class="label-item">2</span>
+    <span class="label-item">3</span>
+    <span class="label-item">4</span>
+    <span class="label-item">5+</span>
+</div>
 
             <div id="discountText" class="discount-text" style="color: var(--color-accent);">
                 Individual bot base price: $750
@@ -1329,6 +1324,7 @@
                 Order My Bot
             </a>
         </div>
+    </div>
         
         <div class="price-card reveal-item" style="background: linear-gradient(135deg, #ffffff 0%, #f9f9f9 100%); max-width: 450px;">
     <h3 style="font-size: 1.6rem; margin-bottom: 15px;">What's Included?</h3>
@@ -1555,8 +1551,7 @@ const MULTI_BOT_DISCOUNT_PERCENT = 0.15;
 const MONTHLY_MAINTENANCE_PER_BOT = 69;
 
 const PRICE_LIST = {
-    1: 750, 2: 1275, 3: 1910, 4: 2550, 5: 3190,
-    6: 3830, 7: 4470, 8: 5110, 9: 5750, 10: 6390
+    1: 750, 2: 1275, 3: 1910, 4: 2550, 5: 3190
 };
 
 let mainCalculatorInitialized = false;
@@ -1641,7 +1636,7 @@ function initializeMainCalculator() {
 
     function updateAll() {
         const locations = parseInt(slider.value, 10);
-        const price = PRICE_LIST[locations] || PRICE_LIST[10];
+        const price = PRICE_LIST[locations] || PRICE_LIST[5];
         const originalPrice = locations * BASE_PRICE_PER_BOT;
         const monthlyTotal = locations * MONTHLY_MAINTENANCE_PER_BOT;
 
@@ -1762,6 +1757,62 @@ document.addEventListener('DOMContentLoaded', () => {
     setupFaqToggle();
     setupScrollReveal();
     initializeMainCalculator();
+});
+
+// Функция обработки движения (универсальная для мыши и тача)
+function handleMove(clientX) {
+    if (!isDragging) return;
+
+    const sliderContainer = slider.parentElement; 
+    const containerRect = sliderContainer.getBoundingClientRect();
+    
+    let newX = clientX - containerRect.left;
+
+    if (newX < 0) newX = 0;
+    if (newX > containerRect.width) newX = containerRect.width;
+
+    const percent = newX / containerRect.width;
+    const min = parseInt(slider.min, 10);
+    const max = parseInt(slider.max, 10);
+    const range = max - min;
+    const newValue = Math.round(percent * range) + min;
+
+    slider.value = newValue;
+    updateAll(); 
+}
+
+// МЫШЬ: Начало перетаскивания
+tracker.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    e.preventDefault(); 
+});
+
+// МЫШЬ: Движение
+document.addEventListener('mousemove', (e) => {
+    handleMove(e.clientX);
+});
+
+// МЫШЬ: Завершение
+document.addEventListener('mouseup', () => {
+    isDragging = false;
+});
+
+// ТАЧ: Начало перетаскивания
+tracker.addEventListener('touchstart', (e) => {
+    isDragging = true;
+    e.preventDefault();
+});
+
+// ТАЧ: Движение
+document.addEventListener('touchmove', (e) => {
+    if (isDragging && e.touches.length > 0) {
+        handleMove(e.touches[0].clientX);
+    }
+});
+
+// ТАЧ: Завершение
+document.addEventListener('touchend', () => {
+    isDragging = false;
 });
 </script>
 </body>
