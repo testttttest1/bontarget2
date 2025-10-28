@@ -1620,10 +1620,10 @@ const MONTHLY_MAINTENANCE_PER_BOT = 69;
 
 const PRICE_LIST = {
     1: 750,
-    2: 750 + (750 * 0.92),  // 8% скидка на второй бот
-    3: 750 + (750 * 0.92) + (750 * 0.90),  // 8% на 2-й, 10% на 3-й
-    4: 750 + (750 * 0.92) + (750 * 0.90) + (750 * 0.88),  // 8%, 10%, 12%
-    5: 750 + (750 * 0.92) + (750 * 0.90) + (750 * 0.88) + (750 * 0.85)  // 8%, 10%, 12%, 15%
+    2: Math.round(750 + (750 * 0.92)),  // 8% скидка на второй бот
+    3: Math.round(750 + (750 * 0.92) + (750 * 0.90)),  // 8% на 2-й, 10% на 3-й
+    4: Math.round(750 + (750 * 0.92) + (750 * 0.90) + (750 * 0.88)),  // 8%, 10%, 12%
+    5: Math.round(750 + (750 * 0.92) + (750 * 0.90) + (750 * 0.88) + (750 * 0.85))  // 8%, 10%, 12%, 15%
 };
 
 let mainCalculatorInitialized = false;
@@ -1717,17 +1717,17 @@ function initializeMainCalculator() {
 
 if (locations >= 2) {
     const savedAmount = originalPrice - price;
-    let discountInfo = '';
+    let discountPercent = '';
     if (locations === 2) {
-        discountInfo = '8% discount';
+        discountPercent = '8%';
     } else if (locations === 3) {
-        discountInfo = 'up to 10% discount';
+        discountPercent = '10%';
     } else if (locations === 4) {
-        discountInfo = 'up to 12% discount';
+        discountPercent = '12%';
     } else {
-        discountInfo = 'up to 15% discount';
+        discountPercent = '15%';
     }
-    discountText.innerHTML = `<i class="fas fa-tags"></i> Save <strong>$${savedAmount}</strong> with a <strong>${discountInfo}</strong>!`;
+    discountText.innerHTML = `<i class="fas fa-tags"></i> Save <strong>$${savedAmount}</strong> with an <strong>${discountPercent} discount</strong>!`;
             discountText.style.color = '#1dd1a1';
         } else {
             discountText.innerHTML = `Individual bot base price: $${BASE_PRICE_PER_BOT}`;
