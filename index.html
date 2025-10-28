@@ -4,12 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>BonTarget — Системы Telegram Ботов для Бизнеса</title>
+  <link rel="icon" href="https://i.ibb.co/tkhNP2P/Bon-Target-Logo-round.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
-  <style>
-    /* ------------------------------------- */
-    /* 1. БАЗОВЫЕ СТИЛИ И ФОН */
-    /* ------------------------------------- */
+<style>
     :root {
         --color-primary: #1a2a6c;
         --color-secondary: #b21f1f;
@@ -18,17 +16,22 @@
         --color-text-dark: #333;
         --shadow-elevation: 0 10px 35px rgba(0,0,0,0.12);
     }
+
+    * {
+        box-sizing: border-box;
+    }
+
     html {
-      scroll-behavior: smooth;
+        scroll-behavior: smooth;
     }
 
     body {
-      margin: 0;
-      font-family: 'Montserrat', sans-serif;
-      background: var(--color-light);
-      color: var(--color-text-dark);
-      line-height: 1.7;
-      overflow-x: hidden;
+        margin: 0;
+        font-family: 'Montserrat', sans-serif;
+        background: var(--color-light);
+        color: var(--color-text-dark);
+        line-height: 1.7;
+        overflow-x: hidden;
     }
     
     a {
@@ -36,22 +39,27 @@
         color: inherit;
     }
 
-    /* ------------------------------------- */
-    /* 2. HERO SECTION (HEADER) - ЭКСКЛЮЗИВНЫЙ ВИД */
-    /* ------------------------------------- */
+    /* HEADER */
     header {
-      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 50%, var(--color-accent) 100%);
-      background-size: 300% 300%;
-      animation: gradientShiftAnim 15s ease infinite;
-      padding: 120px 20px;
-      text-align: center;
-      color: white;
-      position: relative;
-      overflow: hidden;
-      min-height: 70vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+        background: linear-gradient(
+            -45deg,
+            #2c0a13, 
+            #83233e, 
+            #9b2943, 
+            #83233e, 
+            #2c0a13 
+        );
+        background-size: 500% 500%; 
+        animation: gradientShiftAnim 30s ease infinite; 
+        padding: 120px 20px;
+        text-align: center;
+        color: white; 
+        position: relative;
+        overflow: hidden;
+        min-height: 70vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
     @keyframes gradientShiftAnim {
@@ -60,86 +68,70 @@
         100% { background-position: 0% 50%; }
     }
 
-    header::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="p" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r="1.5" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100%" height="100%" fill="url(%23p)"/></svg>') 0 0 repeat;
-      opacity: 0.8;
-      animation: fadeIn 2s ease-out;
-    }
-
     header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 3.8rem;
-      margin-bottom: 25px; 
-      line-height: 1.1; 
-      max-width: 900px;
-      margin: 0 auto 25px auto;
-      font-weight: 800;
-      text-shadow: 0 6px 15px rgba(0,0,0,0.4);
-      animation: fadeInDown 1.2s ease-out;
-      position: relative;
+        font-family: 'Playfair Display', serif;
+        font-size: 3.8rem;
+        margin-bottom: 25px; 
+        line-height: 1.1; 
+        max-width: 900px;
+        margin: 0 auto 25px auto;
+        font-weight: 800;
+        text-shadow: 0 6px 15px rgba(0,0,0,0.4);
+        animation: fadeInDown 1.4s ease-out;
     }
 
     header p {
-      font-size: 1.3rem;
-      opacity: 0.95;
-      max-width: 750px;
-      margin: 0 auto;
-      font-weight: 400;
-      text-shadow: 0 3px 8px rgba(0,0,0,0.25);
-      animation: fadeInUp 1.2s ease-out 0.3s forwards;
-      opacity: 0; 
-      position: relative;
+        font-size: 1.3rem;
+        opacity: 0.95;
+        max-width: 750px;
+        margin: 0 auto;
+        font-weight: 400;
+        text-shadow: 0 3px 8px rgba(0,0,0,0.25);
+        animation: fadeInUp 1.5s ease-out 0.1s forwards;
+        opacity: 0; 
     }
 
     @keyframes fadeInDown {
-      0% { opacity: 0; transform: translateY(-40px); }
-      100% { opacity: 1; transform: translateY(0); }
+        0% { opacity: 0; transform: translateY(-40px); }
+        100% { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes fadeInUp {
-      0% { opacity: 0; transform: translateY(40px); }
-      100% { opacity: 1; transform: translateY(0); }
+        0% { opacity: 0; transform: translateY(40px); }
+        100% { opacity: 1; transform: translateY(0); }
     }
     
     @keyframes fadeIn {
         0% { opacity: 0; }
-        100% { opacity: 0.8; }
+        100% { opacity: 1; }
     }
 
-
     .btn {
-      margin-top: 50px;
-      background: linear-gradient(45deg, #FFD700, #DAA520);
-      color: var(--color-text-dark);
-      padding: 18px 45px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 1.2rem; 
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-      transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-      display: inline-block;
-      border: none;
-      cursor: pointer;
-      animation: fadeInUp 1.2s ease-out 0.6s forwards;
-      opacity: 0; 
-      letter-spacing: 0.5px;
+        margin-top: 50px;
+        background: linear-gradient(45deg, #FFD700, #DAA520);
+        color: var(--color-text-dark);
+        padding: 18px 45px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1.2rem; 
+        box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+        display: inline-block;
+        border: none;
+        cursor: pointer;
+        animation: fadeInUp 1.0s ease-out 0.5s forwards;
+        opacity: 0; 
+        letter-spacing: 0.5px;
     }
 
     .btn:hover {
-      transform: translateY(-8px) scale(1.03);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-      background: linear-gradient(45deg, #DAA520, #FFD700);
-      color: var(--color-primary);
+        transform: translateY(-8px) scale(1.03);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        background: linear-gradient(45deg, #DAA520, #FFD700);
+        color: var(--color-primary);
     }
 
-    /* БЛОК ПРЕИМУЩЕСТВ В HERO */
     .hero-stats {
         display: flex;
         justify-content: center;
@@ -147,7 +139,7 @@
         margin-top: 40px;
         padding-top: 30px;
         border-top: 1px solid rgba(255, 255, 255, 0.2);
-        animation: fadeIn 1.5s ease-out 1.2s forwards;
+        animation: fadeIn 1.0s ease-out 0.7s forwards;
         opacity: 0;
     }
 
@@ -156,18 +148,21 @@
         text-align: center;
         max-width: 250px;
     }
+
     .hero-stat-item i {
         font-size: 2rem;
         color: var(--color-accent);
         margin-bottom: 10px;
         display: block;
     }
-    .hero-stat-item h4 {
+
+    .hero-stat-item h4 { 
         font-size: 1.8rem;
         margin: 0 0 5px 0;
         font-weight: 800;
         font-family: 'Playfair Display', serif;
     }
+
     .hero-stat-item p {
         font-size: 1rem;
         opacity: 0.8;
@@ -175,140 +170,81 @@
         line-height: 1.4;
     }
 
-
-    @media (max-width: 768px) {
-      header {
-        padding: 100px 15px;
-      }
-      header h1 {
-        font-size: 2.8rem; 
-        max-width: 95%;
-      }
-      header p {
-        font-size: 1.15rem; 
-        max-width: 95%;
-      }
-      .btn {
-        padding: 15px 35px;
-        font-size: 1.05rem;
-        margin-top: 40px;
-      }
-      .hero-stats {
-          flex-direction: column;
-          gap: 20px;
-      }
-      .hero-stat-item {
-          padding: 10px 0;
-      }
-    }
-
-    /* ------------------------------------- */
-    /* 3. ОБЩИЕ СТИЛИ СЕКЦИЙ И SCROLL REVEAL */
-    /* ------------------------------------- */
-
+    /* SECTIONS */
     section {
-      padding: 100px 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-      position: relative;
+        padding: 80px 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
     }
 
-    /* Стили для Scroll Reveal */
     .reveal-item {
         opacity: 0;
         transform: translateY(40px);
         transition: opacity 0.8s ease-out, transform 0.8s ease-out;
     }
+
     .reveal-item.visible {
         opacity: 1;
         transform: translateY(0);
     }
 
     section h2 {
-      text-align: center;
-      font-family: 'Playfair Display', serif;
-      font-size: 3rem;
-      margin-bottom: 60px;
-      color: var(--color-primary);
-      font-weight: 800;
-      position: relative;
-      letter-spacing: 1px;
+        text-align: center;
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+        margin-bottom: 60px;
+        color: var(--color-primary);
+        font-weight: 800;
+        position: relative;
+        letter-spacing: 1px;
     }
 
     section h2::after {
-      content: '';
-      display: block;
-      width: 80px;
-      height: 5px;
-      background: linear-gradient(90deg, var(--color-secondary), var(--color-accent));
-      margin: 15px auto 0;
-      border-radius: 3px;
+        content: '';
+        display: block;
+        width: 120px;
+        height: 5px;
+        background: linear-gradient(90deg, var(--color-secondary), var(--color-accent));
+        margin: 15px auto 0;
+        border-radius: 3px;
     }
     
-    /* ------------------------------------- */
-    /* 4. СЕКЦИЯ "КАК ЭТО РАБОТАЕТ" (ИНТЕРАКТИВ) */
-    /* ------------------------------------- */
+    /* HOW IT WORKS */
     #how p:first-of-type {
-      text-align: center; 
-      font-size: 1.2rem; 
-      color: #555; 
-      margin-bottom: 50px;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    
-    .how-stats {
-        display: flex;
-        justify-content: space-around;
         text-align: center;
-        margin-bottom: 70px;
-        gap: 20px;
-        flex-wrap: wrap;
-    }
-    .how-stat-block {
-        flex: 1 1 300px;
-        background: white;
-        padding: 20px;
-        border-radius: 15px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-        border-left: 5px solid var(--color-secondary);
-    }
-    .how-stat-block h4 {
-        font-size: 1.8rem;
-        color: var(--color-primary);
-        margin: 0 0 5px 0;
-        font-weight: 800;
-    }
-    .how-stat-block p {
-        margin: 0;
-        font-weight: 500;
+        margin-top: -20px;
+        font-size: 1.2rem;
         color: #555;
+        margin-bottom: 40px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .steps {
-      display: flex;
-      gap: 30px;
-      flex-wrap: wrap;
-      justify-content: center;
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .step {
-      flex: 1 1 250px;
-      background: #ffffff;
-      padding: 35px 25px;
-      border-radius: 20px;
-      box-shadow: var(--shadow-elevation);
-      transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-      border-bottom: 4px solid var(--color-light);
-      cursor: pointer; 
-      min-height: 180px; 
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
+        flex: 1 1 200px;
+        background: #ffffff;
+        padding: 25px 20px;
+        border-radius: 20px;
+        box-shadow: var(--shadow-elevation);
+        transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+        border-bottom: 4px solid var(--color-light);
+        cursor: pointer; 
+        min-height: 150px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
     }
 
     .step::before {
@@ -320,7 +256,7 @@
         height: 5px;
         background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
         transform: translateX(-100%);
-        transition: transform 0.4s ease-out;
+        transition: transform 0.5s ease-out;
     }
 
     .step:hover::before {
@@ -328,337 +264,504 @@
     }
 
     .step:hover {
-      transform: translateY(-10px) scale(1.02);
-      box-shadow: 0 15px 45px rgba(0,0,0,0.18);
-      border-color: transparent;
+        transform: translateY(-5px) scale(1.01);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        border-color: transparent;
     }
 
     .step-icon {
-      font-size: 3.5rem;
-      margin-bottom: 20px;
-      color: var(--color-secondary);
-      position: relative;
-      z-index: 1;
-      transition: transform 0.3s ease;
+        font-size: 3rem;
+        margin-bottom: 15px;
+        color: var(--color-secondary);
+        position: relative;
+        z-index: 1;
+        transition: transform 0.3s ease;
     }
-    
+
     .step:hover .step-icon {
-        transform: scale(1.1);
+        transform: scale(1.05);
         color: var(--color-accent);
     }
 
     .step h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      margin-bottom: 0; 
-      color: var(--color-primary);
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      position: relative;
-      z-index: 1;
-    }
-    
-    .step p { 
-        display: none;
+        font-family: 'Playfair Display', serif;
+        font-size: 1.3rem;
+        margin-bottom: 0; 
+        color: var(--color-primary);
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        position: relative;
+        z-index: 1;
     }
 
-    /* ------------------------------------- */
-    /* 5. СЕКЦИЯ ПОРТФОЛИО */
-    /* ------------------------------------- */
+    /* PORTFOLIO */
     #portfolio {
-      background: #f7f9fb;
-      padding-bottom: 120px;
+        background: linear-gradient(
+            to bottom,
+            #f0f2f5 80%,
+            #f0f2f8 85%,
+            #d9e0f0 90%,
+            #aabbdd 95%,
+            #1f2e4b 100%
+        );
+        padding-bottom: 100px;
     }
 
     .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 40px;
-      margin-top: 50px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+        margin-top: 50px;
     }
 
-    /* Медиа-запрос: 2 элемента на мобильных */
-    @media (max-width: 768px) {
-      .mobile-hide { 
-        display: none !important;
-      }
-      .portfolio-grid {
-           grid-template-columns: 1fr 1fr; 
-           gap: 25px;
-      }
-      .portfolio-item {
-        flex: 1 1 45%; 
-        max-width: 100%;
-      }
-    }
-
-    /* Медиа-запрос: 3 элемента на десктопе */
-    @media (min-width: 769px) {
-      .portfolio-grid {
-           grid-template-columns: repeat(3, 1fr); 
-      }
-    }
-    
-    /* Скрываем 4-й элемент на ПК */
-    @media (min-width: 769px) {
-        .desktop-hide {
-            display: none !important;
-        }
-    }
-
-    /* АНИМАЦИЯ ГРАНИЦЫ ДЛЯ КАРТОЧЕК */
     @keyframes borderDance {
         0% { background-position: 0% 50%; }
         100% { background-position: 100% 50%; }
     }
 
     .portfolio-item {
-      background: white;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 10px 35px rgba(0,0,0,0.12);
-      transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-      cursor: pointer; 
-      border: 3px solid transparent; /* Для эффекта границы */
-      background-clip: padding-box;
-      position: relative;
-      z-index: 1;
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+        transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+        cursor: pointer;
+        border: 3px solid transparent;
+        background-clip: padding-box;
+        position: relative;
+        z-index: 1;
     }
-    
+
     .portfolio-item::before {
         content: '';
         position: absolute;
         top: 0; right: 0; bottom: 0; left: 0;
         z-index: -1;
-        margin: -3px; /* Ширина границы */
-        border-radius: 23px; /* Чуть больше основного радиуса */
+        margin: -3px;
+        border-radius: 23px;
         background: linear-gradient(45deg, var(--color-primary), var(--color-secondary), var(--color-accent));
         background-size: 300% 300%;
         opacity: 0;
-        transition: opacity 0.4s ease;
+        transition: opacity 0.5s ease;
     }
 
     .portfolio-item:hover {
-      transform: translateY(-12px) scale(1.03);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.25);
-    }
-    
-    .portfolio-item:hover::before {
-        opacity: 1;
-        animation: borderDance 3s linear infinite;
+        transform: translateY(-12px) scale(1.03);
+        box-shadow: 0 20px 50px rgba(0,0,0,0.25);
     }
 
+    .portfolio-item:hover::before {
+        opacity: 0.9;
+        animation: borderDance 2.3s linear infinite;
+    }
 
     .portfolio-image {
-      width: 100%;
-      height: 220px;
-      background: #f8f9fa;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-      border-bottom: 4px solid #e2e8f0;
-      transition: all 0.3s ease;
-    }
-
-    .portfolio-image.placeholder {
-      background: linear-gradient(135deg, #1a2a6c 0%, #b21f1f 50%, #fdbb2d 100%);
-      background-size: 200% 200%;
-      animation: gradientShift 4s ease infinite;
-      color: white;
-      font-size: 3.5rem;
-      text-shadow: 0 3px 8px rgba(0,0,0,0.4);
-    }
-
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    .placeholder-img {
         width: 100%;
-        height: 100%;
-        object-fit: cover;
-        background-color: #f2f2f2;
+        height: 220px;
+        background: #f8f9fa;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.5rem;
-        color: #555;
-        border-radius: 10px;
-        font-weight: 500;
-        text-align: center;
+        position: relative;
+        overflow: hidden;
+        border-bottom: 4px solid #e2e8f0;
+        transition: all 0.3s ease;
     }
-    .placeholder-img.p1 { background: #fee2e2; }
-    .placeholder-img.p2 { background: #e0f2f1; }
-    .placeholder-img.p3 { background: #e0e7ff; }
-    .placeholder-img.p4 { background: #fffbeb; }
 
+    .portfolio-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 
     .portfolio-content {
-      padding: 25px;
-      min-height: 110px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+        padding: 25px;
+        min-height: 110px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 
-/* Оптимизация текста в карточках портфолио */
-.portfolio-content h3 {
-    font-size: 1.2rem; /* уменьшили размер заголовка */
-    margin-bottom: 5px; /* меньше отступа */
-}
-
-.portfolio-content p {
-    font-size: 0.9rem; /* чуть меньше текста описания */
-    line-height: 1.3;
-    max-height: 60px; /* ограничиваем высоту блока с текстом */
-    overflow: hidden;
-    text-overflow: ellipsis; /* добавляем троеточие */
-}
-
-/* На мобильных ещё компактнее */
-@media (max-width: 768px) {
     .portfolio-content h3 {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+        font-family: 'Playfair Display', serif;
+        color: var(--color-primary);
+        font-weight: 700;
     }
 
     .portfolio-content p {
-        font-size: 0.85rem;
-        max-height: 50px;
+        font-size: 0.9rem;
+        line-height: 1.3;
+        color: #555;
+        max-height: 60px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    /* PRICING */
+/* ========================================================= */
+/* 1. ОБЩИЕ СТИЛИ КАРТОЧЕК */
+/* ========================================================= */
+
+.price-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Увеличенный разрыв */
+    margin-top: 50px;
+    flex-wrap: wrap; 
+    padding: 0 10px;
+}
+
+.price-card {
+    max-width: 550px;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out, border 0.4s ease-out;
+    border: 3px solid transparent;
+    text-align: center;
+}
+
+/* Стиль для второй карточки, которая кликабельная */
+.price-card.interactive-promo {
+    background-color: #f9f9f9;
+}
+.price-card.interactive-promo:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(26, 42, 108, 0.25);
+    border-color: var(--color-accent); /* Акцентный цвет на ховере */
+    cursor: pointer;
+}
+
+.price-card h3 {
+    font-size: 2rem;
+    color: var(--color-primary);
+    margin-bottom: 15px;
+}
+
+.price-card .price {
+    font-size: 3.2rem;
+    font-weight: 800;
+    color: var(--color-secondary);
+    margin-bottom: 25px;
+    line-height: 1;
+}
+
+.price-card .teaser {
+    color: #666;
+    font-size: 1.1rem;
+    min-height: 40px;
+    margin-bottom: 30px;
+}
+
+/* ------------------ */
+/* СПИСОК ФУНКЦИЙ В КАРТОЧКЕ */
+/* ------------------ */
+.feature-box {
+    text-align: left;
+    margin: 20px auto;
+    max-width: 300px;
+}
+.feature-box ul {
+    list-style: none;
+    padding: 0;
+}
+.feature-box li {
+    margin-bottom: 12px;
+    font-size: 1rem;
+    color: #444;
+}
+.feature-box i {
+    color: var(--color-accent); 
+    margin-right: 10px;
+}
+
+/* ========================================================= */
+/* 2. СТИЛИ ДЛЯ МОДАЛЬНОГО ОКНА (ПОПАПА) */
+/* ========================================================= */
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+    overflow: hidden; /* ГЛАВНОЕ: Полностью блокируем скролл страницы */
+    /* Добавляем плавность для появления модального окна */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-content-details {
+    padding: 30px; 
+    max-width: 850px; /* Увеличенный размер */
+    width: 95%;
+    
+    /* Обеспечиваем, чтобы попап помещался на экране */
+    max-height: 95vh; 
+    overflow-y: auto; /* Скролл только внутри контента, если он не поместился */
+    
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    transform: scale(0.9) translateY(-20px);
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.4s ease-out;
+}
+
+.modal-backdrop.active .modal-content-details {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
+.modal-calculator {
+    background-color: #f0f4f7; /* Более мягкий фон */
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    border-left: 5px solid var(--color-secondary);
+}
+.modal-calculator .price {
+    font-size: 4rem; /* Крупнее для акцента */
+    margin-bottom: 15px;
+    /* Изменено: Убран font-weight и color */
+}
+
+/* ------------------ */
+/* ПРОФЕССИОНАЛЬНЫЙ ПОЛЗУНОК С ЧЕЛОВЕЧКОМ */
+/* ------------------ */
+
+/* Контейнер для ползунка */
+.slider-container {
+    position: relative;
+    width: 100%;
+    margin: 70px 0 40px 0;
+    padding: 0;
+}
+
+/* Сама линия ползунка */
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(to right, var(--color-primary) 0%, var(--color-secondary) 100%);
+    outline: none;
+    position: relative;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 5px 8px rgba(0,0,0,0.15);
+}
+
+/* Скрытие стандартного thumb в WebKit */
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+/* Скрытие стандартного thumb в Firefox */
+.slider::-moz-range-thumb {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    border: none;
+}
+
+/* ========================================================= */
+/* СЕКЦИЯ: ПРОФЕССИОНАЛЬНЫЙ ПОЛЗУНОК С ЧЕЛОВЕЧКОМ (ОБНОВЛЕНО) */
+/* ========================================================= */
+
+/* Кастомный человечек НА линии */
+.custom-thumb-tracker {
+    position: absolute;
+    
+    /* Корректировка вертикального положения для центровки на линии */
+    top: 90%; 
+    left: 0;
+    
+    /* КЛЮЧЕВОЙ МОМЕНТ: Центрирует эмодзи относительно его точки 'left' (из JS) */
+    transform: translate(-50%, -50%); 
+    
+    /* УВЕЛИЧЕННЫЙ РАЗМЕР ЭМОДЗИ */
+    font-size: 60px;
+    
+    z-index: 10;
+    /* Разрешаем клики для JS-логики перетаскивания */
+    pointer-events: auto; 
+    /* Визуальный индикатор перетаскивания */
+    cursor: grab; 
+    
+    transition: left 0.15s ease-out, transform 0.2s ease;
+    user-select: none;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+    line-height: 1;
+}
+
+/* Расширение невидимой области нажатия (хитбокса) */
+.custom-thumb-tracker::before {
+    content: '';
+    position: absolute;
+    /* Размер невидимой кликабельной области */
+    width: 60px; 
+    height: 60px; 
+    /* Центрирование */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Делаем невидимым */
+    background: transparent; 
+    /* Помещаем под эмодзи */
+    z-index: -1; 
+}
+
+.custom-thumb-tracker:hover {
+    cursor: grabbing;
+    /* Улучшенный эффект: сохраняем центрирование и только масштабируем */
+    transform: translate(-50%, -50%) scale(1.1); 
+}
+
+/* ---------------------------------------------------- */
+/* КЛЮЧЕВАЯ КОРРЕКТИРОВКА: МЕТКИ (SLIDER LABELS) */
+/* ---------------------------------------------------- */
+.slider-labels {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: -30px;
+    padding: 0;
+    top: -60px;
+}
+
+.label-item {
+    font-size: 0.75rem;
+    color: #666;
+    font-weight: 600;
+    text-align: center;
+    min-width: 20px;
+    position: relative;
+}
+
+/* Точки под цифрами */
+.label-item::after {
+    content: '●';
+    position: absolute;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 8px;
+    color: var(--color-primary);
+    opacity: 0.6;
+}
+
+.label-item:first-child {
+    text-align: left;
+}
+
+.label-item:last-child {
+    text-align: right;
+}
+
+/* ------------------ */
+/* ДИНАМИЧЕСКИЙ КОНТЕНТ ВНУТРИ ПОПАПА */
+/* ------------------ */
+
+.dynamic-content-area {
+    margin-top: 30px;
+    padding: 25px;
+    text-align: left;
+    background-color: #fff;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    transition: all 0.3s ease-in-out;
+}
+
+.dynamic-content-area h4 {
+    color: var(--color-accent);
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+
+/* ========================================================= */
+/* 3. АДАПТИВНОСТЬ */
+/* ========================================================= */
+
+@media (max-width: 992px) {
+    .price-cards {
+        flex-direction: column; 
+        align-items: center;
+        gap: 25px;
+    }
+    .price-card {
+        max-width: 100%;
+    }
+    .slider-container {
+        max-width: 90%; 
+    }
+    .modal-content-details {
+        width: 98%;
+        padding: 15px;
+        max-height: 98vh;
     }
 }
 
-    /* ------------------------------------- */
-    /* 6. СЕКЦИЯ ЦЕНЫ (ПРЕМИАЛЬНЫЙ ВИД) */
-    /* ------------------------------------- */
-
-    #pricing {
-        background: linear-gradient(135deg, #1f2e4b 0%, #2f3e5b 100%);
-        color: white;
-        position: relative;
-        overflow: hidden;
+@media (max-width: 650px) {
+    /* Адаптивная коррекция для ползунка на мобильных */
+    .custom-thumb-tracker {
+        font-size: 40px; 
+        top: 80%;       
     }
-    
-    #pricing::before {
-        content: '';
-        position: absolute;
-        top: 0; left: 0; right: 0; bottom: 0;
-        background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.05) 1%, transparent 50%),
-                    radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.08) 1%, transparent 50%);
-        pointer-events: none;
-        animation: pulseGradient 10s infinite alternate;
-    }
-    
-    @keyframes pulseGradient {
-        0% { background-position: 0% 0%, 100% 100%; }
-        100% { background-position: 10% 20%, 90% 80%; }
-    }
-
-
-    #pricing h2 {
-        color: white;
-        position: relative;
-        z-index: 2;
-    }
-
-    #pricing h2::after {
-        background: linear-gradient(90deg, var(--color-accent), var(--color-secondary));
-    }
-
-    .price-cards {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 40px;
-      margin-top: 50px;
-    }
-
-    .price-card {
-      flex: 1 1 400px;
-      max-width: 450px;
-      background: #ffffff;
-      border-radius: 20px;
-      padding: 50px 35px;
-      text-align: center;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-      border: 3px solid transparent; 
-      transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      color: var(--color-text-dark);
-      background-clip: padding-box;
-      z-index: 1;
-    }
-    
-    .price-card::before {
-        content: '';
-        position: absolute;
-        top: 0; right: 0; bottom: 0; left: 0;
-        z-index: -1;
-        margin: -3px; 
-        border-radius: 23px; 
-        background: linear-gradient(45deg, var(--color-accent), var(--color-secondary), var(--color-primary));
-        background-size: 300% 300%;
-        opacity: 0;
-        transition: opacity 0.4s ease;
-    }
-
-    .price-card:hover {
-      box-shadow: 0 25px 55px rgba(0,0,0,0.2);
-      transform: translateY(-10px) scale(1.02);
-    }
-    
-    .price-card:hover::before {
-        opacity: 1;
-        animation: borderDance 3s linear infinite reverse;
-    }
-
-
-    .price-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
-      margin-bottom: 15px;
-      color: var(--color-primary);
-      font-weight: 700;
-      letter-spacing: 0.5px;
+    .custom-thumb-tracker::before {
+        width: 40px; 
+        height: 40px;
     }
 
     .price-card .price {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 3.2rem;
-      font-weight: bold;
-      color: var(--color-secondary);
-      margin: 15px 0 20px 0;
-      text-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        font-size: 2.5rem;
     }
-    
-    .price-card .teaser { 
-        font-size: 1.15rem;
-        color: #444;
-        min-height: 60px;
-        margin-bottom: 30px;
+    .modal-calculator .price {
+        font-size: 3rem;
     }
-        .price-card h3,
-    .price-card .price,
-    .price-card .teaser {
-        transition: color 0.3s ease;
+    .mobile-hide-labels {
+        display: none !important; 
     }
+}
 
-    .price-card:hover h3,
-    .price-card:hover .price,
-    .price-card:hover .teaser {
-        color: #fff; /* текст станет белым на ярком фоне */
-    }
-
-    /* ------------------------------------- */
-    /* 7. СЕКЦИЯ FAQ */
-    /* ------------------------------------- */
-    
+    /* FAQ */
     #faq {
+        /* ... (Стили FAQ остаются прежними) ... */
+    }
+    
+    /* ... (Остальные стили: Modals, Footer, Responsive) ... */
+
+    /* FAQ */
+    #faq {
+        background: linear-gradient(
+            to top,
+            #f0f2f5 80%,
+            #f0f2f8 85%,
+            #d9e0f0 90%,
+            #aabbdd 95%,
+            #1f2e4b 100%
+        );
         padding-top: 80px;
     }
     
@@ -696,6 +799,7 @@
         font-size: 1rem;
         transition: transform 0.3s ease;
         color: var(--color-secondary);
+        min-width: 20px;
     }
     
     .faq-question.active i {
@@ -707,7 +811,7 @@
         padding: 0 30px;
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+        transition: max-height 0.6s ease-in-out, padding 0.5s ease-in-out;
         color: #555;
         font-size: 1rem;
         line-height: 1.6;
@@ -715,69 +819,80 @@
     
     .faq-answer.active {
         padding-bottom: 25px;
-        max-height: 300px; /* Достаточно большое значение */
+        max-height: 500px;
     }
 
-
-    /* ------------------------------------- */
-    /* 8. ОБЩИЕ СТИЛИ МОДАЛЬНЫХ ОКОН */
-    /* ------------------------------------- */
-
+    /* MODALS */
     .modal-backdrop {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0,0,0,0);
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.4s ease-out;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0,0,0,0);
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s ease-out;
     }
 
     .modal-backdrop.active {
-      background: rgba(0,0,0,0.85);
-      opacity: 1;
-      visibility: visible;
+        background: rgba(0,0,0,0.85);
+        opacity: 1;
+        visibility: visible;
     }
 
     .modal-content-base {
-      background: linear-gradient(135deg, #ffffff 0%, #f0f2f5 100%);
-      border-radius: 20px;
-      padding: 50px;
-      max-width: 550px;
-      width: 90%;
-      text-align: center;
-      position: relative;
-      transform: scale(0.7) translateY(80px);
-      transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-      box-shadow: 0 25px 70px rgba(0,0,0,0.4);
-      max-height: 90vh;
-      overflow-y: auto;
+        background: linear-gradient(135deg, #ffffff 0%, #f0f2f5 100%);
+        border-radius: 20px;
+        padding: 40px;
+        max-width: 550px;
+        width: 90%;
+        text-align: center;
+        position: relative;
+        box-shadow: 0 15px 50px rgba(0,0,0,0.5);
+        border: 4px solid var(--color-primary);
+        transform: scale(0.7) translateY(80px);
+        transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+        max-height: 90vh;
+        overflow-y: auto;
     }
 
     .modal-backdrop.active .modal-content-base {
-      transform: scale(1) translateY(0);
+        transform: scale(1) translateY(0);
+    }
+
+    .modal-content-base::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .modal-content-base::-webkit-scrollbar-thumb {
+        background-color: var(--color-secondary);
+        border-radius: 4px;
+    }
+
+    .modal-content-base::-webkit-scrollbar-track {
+        background: #e0e0e0;
     }
 
     .modal-close {
-      position: absolute;
-      top: 20px;
-      right: 25px;
-      font-size: 28px;
-      cursor: pointer;
-      color: #777;
-      transition: color 0.3s ease;
+        position: absolute;
+        top: 20px;
+        right: 25px;
+        font-size: 28px;
+        cursor: pointer;
+        color: #777;
+        transition: color 0.3s ease;
     }
+
     .modal-close:hover {
         color: var(--color-primary);
     }
-    
+
     .modal-content-base h3 {
         font-family: 'Playfair Display', serif;
         color: var(--color-primary);
@@ -785,20 +900,62 @@
         margin-bottom: 20px;
         font-weight: 700;
     }
-    
+
     .modal-content-base p {
         color: #444;
-        line-height: 1.7;
-        margin-bottom: 30px;
+        line-height: 1.6;
+        margin-bottom: 15px;
         font-size: 1.05rem;
     }
 
-    /* ------------------------------------- */
-    /* 9. СТИЛИ ДЛЯ КОНТЕНТНЫХ ПОПАПОВ (ОБЩИЕ) */
-    /* ------------------------------------- */
-    
+    .detail-list {
+        text-align: left;
+        list-style: none;
+        padding: 0;
+        margin: 15px auto 20px auto;
+        max-width: 95%;
+    }
+
+    .detail-list li {
+        margin-bottom: 12px;
+        font-size: 1rem;
+        color: #333;
+        font-weight: 500;
+        line-height: 1.4;
+        display: flex;
+        align-items: flex-start;
+    }
+
+    .detail-list li i {
+        color: var(--color-secondary);
+        margin-right: 10px;
+        font-size: 1.2rem;
+        margin-top: 3px;
+        min-width: 20px;
+    }
+
+    .modal-image-container {
+        margin: 0 auto 20px auto;
+        border-radius: 15px;
+        overflow: hidden;
+        border: 2px solid #ddd;
+        padding: 5px;
+        background: white;
+        max-width: 90%;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .modal-image-container img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 10px;
+        object-fit: contain;
+        max-height: 300px;
+    }
+
     .detail-cta {
-        margin-top: 15px;
+        margin-top: 20px;
         padding: 15px 35px;
         background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
         color: white;
@@ -812,41 +969,20 @@
         box-shadow: 0 8px 20px rgba(0,0,0,0.2);
         letter-spacing: 0.5px;
     }
-    
+
     .detail-cta:hover {
         background: linear-gradient(45deg, var(--color-secondary), var(--color-primary));
         transform: translateY(-4px) scale(1.02);
         box-shadow: 0 12px 25px rgba(0,0,0,0.3);
     }
-    
-    /* Стили для иконок/списков внутри модалок цен */
-    .feature-list {
-        text-align: left;
-        list-style: none;
-        padding: 0;
-        margin: 20px 0 30px 0;
-    }
-    
-    .feature-list li {
-        margin-bottom: 12px;
-        font-size: 1rem;
-        color: #333;
-        font-weight: 500;
-    }
 
-    .feature-list li i {
-        color: var(--color-secondary); 
-        margin-right: 10px;
-    }
-
-    /* Стили для выбора контактов */
     .contact-buttons {
         display: flex;
         flex-direction: column;
         gap: 20px;
         margin-top: 30px;
     }
-    
+
     .contact-button {
         padding: 18px 40px;
         border-radius: 15px;
@@ -855,6 +991,10 @@
         transition: all 0.3s ease;
         text-align: center;
         box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
     }
 
     .contact-button.telegram {
@@ -871,354 +1011,462 @@
         transform: translateY(-4px) scale(1.02);
         box-shadow: 0 12px 25px rgba(0,0,0,0.2);
     }
-    
-    /* Стили для изображений в модалках шагов/цен */
-    .modal-image-container {
-        margin-bottom: 30px;
-        border-radius: 15px;
-        overflow: hidden;
-        border: 2px solid #ddd;
-        padding: 10px;
-        background: white;
-    }
-    .modal-image-container img {
-        width: 100%;
-        height: auto;
-        display: block;
-        border-radius: 10px;
-    }
 
-
-    /* ------------------------------------- */
-    /* 10. FOOTER POPUP */
-    /* ------------------------------------- */
-
-    .footer-popup {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background: white;
-      border-radius: 20px;
-      padding: 30px;
-      max-width: 380px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.18);
-      z-index: 1001;
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(40px) scale(0.9);
-      transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-      border: 1px solid #e0e6eb;
-    }
-
-    .footer-popup.active {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0) scale(1);
-    }
-
-    .footer-popup-close {
-      position: absolute;
-      top: 18px;
-      right: 22px;
-      font-size: 24px;
-      cursor: pointer;
-      color: #999;
-      transition: color 0.3s ease;
-    }
-
-    .footer-popup-close:hover {
-      color: var(--color-primary);
-    }
-
-    .footer-popup h4 {
-      margin: 0 0 25px 0;
-      color: var(--color-primary);
-      font-size: 1.25rem;
-      line-height: 1.5;
-      padding-right: 30px;
-      font-weight: 600;
-      font-family: 'Playfair Display', serif;
-    }
-
-    .footer-popup-buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    .footer-popup-btn {
-      padding: 14px 22px;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1.05rem;
-      text-align: center;
-      transition: all 0.3s ease;
-      border: 2px solid #e0e6eb;
-      color: var(--color-primary);
-      background: white;
-      letter-spacing: 0.3px;
-    }
-
-    .footer-popup-btn:hover {
-      background: linear-gradient(45deg, var(--color-secondary), var(--color-accent));
-      color: white;
-      border-color: transparent;
-      transform: translateY(-3px);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-    }
-
-    @media (max-width: 480px) {
-      .footer-popup {
-        bottom: 15px;
-        right: 15px;
-        left: 15px;
-        max-width: none;
-        margin: 0 15px;
-        padding: 25px;
-      }
-      .footer-popup h4 {
-          font-size: 1.15rem;
-      }
-      .footer-popup-btn {
-          font-size: 0.95rem;
-          padding: 12px 18px;
-      }
-    }
-
-    /* ------------------------------------- */
-    /* 11. ФУТЕР */
-    /* ------------------------------------- */
-
+    /* FOOTER */
     footer {
-      background: var(--color-primary);
-      color: #e0e6eb;
-      padding: 30px 20px;
-      text-align: center;
-      font-size: 1rem;
-      border-top: 5px solid var(--color-secondary);
+        background: var(--color-primary);
+        color: #e0e6eb;
+        padding: 30px 20px;
+        text-align: center;
+        font-size: 1rem;
+        border-top: 5px solid var(--color-secondary);
     }
 
     .socials a {
-      color: var(--color-accent);
-      text-decoration: none;
-      margin: 0 12px;
-      transition: color 0.3s ease;
-      font-size: 1.2rem;
+        color: var(--color-accent);
+        text-decoration: none;
+        margin: 0 12px;
+        transition: color 0.3s ease;
+        font-size: 1.2rem;
     }
 
     .socials a:hover {
-      color: white;
-      text-shadow: 0 0 8px var(--color-accent);
+        color: white;
+        text-shadow: 0 0 8px var(--color-accent);
     }
 
     footer p {
         margin: 8px 0;
     }
 
+    /* RESPONSIVE */
     @media (max-width: 768px) {
-        header .hero-stats {
+        header {
+            padding: 100px 15px;
+            min-height: 60vh;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            max-width: 95%;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            max-width: 95%;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            font-size: 1.05rem;
+            margin-top: 40px;
+        }
+
+        .hero-stats {
             flex-direction: column;
             gap: 20px;
+        }
+
+        .hero-stat-item {
+            padding: 10px 0;
+        }
+
+        section {
+            padding: 60px 20px;
+        }
+
+        section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+        }
+
+        .steps {
+            gap: 15px;
+        }
+
+        .step {
+            flex: 1 1 calc(50% - 10px);
+            min-height: 130px;
+            padding: 20px 15px;
+        }
+
+        .step-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .step h3 {
+            font-size: 1.1rem;
+        }
+
+        .portfolio-grid {
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        .price-cards {
+            flex-direction: column;
             align-items: center;
         }
-        header .hero-stats .hero-stat-item {
-            padding: 10px 0;
-            width: 100%;
-            max-width: 100%;
-            text-align: center;
+
+        .price-card {
+            max-width: 95%;
+            padding: 30px 20px;
+            transform: none !important;
         }
-        header .hero-stats .hero-stat-item:nth-child(3) {
-            width: 100%;
+
+        .price-card:hover {
+            transform: translateY(-8px) scale(1.02) !important;
+        }
+
+        .price-card h3 {
+            font-size: 1.8rem;
+        }
+
+        .price-card .price {
+            font-size: 2.5rem;
+        }
+        
+        /* New styles for Basic card price on mobile */
+        .price-info #basic-price {
+            font-size: 2.5rem;
+        }
+
+        .slider-arrow {
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+        }
+
+        .slider-arrow.prev {
+            left: 10px;
+        }
+
+        .slider-arrow.next {
+            right: 10px;
+        }
+
+        .slide {
+            padding: 40px 30px;
+        }
+
+        .testimonial-text {
+            font-size: 1rem;
+        }
+
+        .modal-content-base {
+            max-width: 95%;
+            padding: 30px 20px;
+            border-width: 2px;
+        }
+
+        .modal-image-container {
+            max-width: 95%;
+        }
+
+        .modal-image-container img {
+            max-height: 200px;
+        }
+
+        .faq-question {
+            padding: 15px 20px;
+            font-size: 1rem;
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            font-size: 0.95rem;
+        }
+
+        .faq-answer.active {
+            padding-bottom: 20px;
         }
     }
 
-  </style>
+    @media (max-width: 480px) {
+        header h1 {
+            font-size: 2rem;
+        }
+
+        header p {
+            font-size: 1rem;
+        }
+
+        .step {
+            flex: 1 1 100%;
+        }
+
+        section h2 {
+            font-size: 1.8rem;
+        }
+    }
+</style>
 </head>
 <body>
   <header>
-    <h1>Полная Автоматизация Вашего Бизнеса в Telegram</h1>
-    <p>Бот-системы для приёма заказов, платежей, бронирования и консультаций в режиме 24/7 без вашего участия.</p>
+    <h1>Put Your Business on Autopilot!</h1>
+    <p>All inside the messenger everyone uses!</p>
     
     <div class="hero-stats">
         <div class="hero-stat-item">
             <i class="fas fa-clock"></i>
             <h4>24/7</h4>
-            <p>Прием заявок и платежей без перерывов и выходных.</p>
+            <p>Clients reach you day and night!</p>
         </div>
         <div class="hero-stat-item">
             <i class="fas fa-bolt"></i>
             <h4>+50%</h4>
-            <p>Повышение скорости обработки лидов благодаря мгновенному отклику.</p>
+            <p>Instant answers = more conversions.</p>
         </div>
         <div class="hero-stat-item">
             <i class="fas fa-shield-alt"></i>
             <h4>100%</h4>
-            <p>Безопасность данных и стабильность работы вашей системы.</p>
+            <p>Ensure secure data and stable work.</p>
         </div>
     </div>
     
-    <a class="btn" onclick="openContactChoiceModal()" style="cursor: pointer;">
-      🚀 Обсудить Мой Проект
+    <a class="btn" onclick="openContactChoiceModal()">
+      🚀 Get Started
     </a>
   </header>
 
   <section id="how" class="reveal-item">
-    <h2>Как это работает?</h2>
-    <p>Мы предлагаем индивидуальный подход к каждому клиенту, обеспечивая прозрачность и эффективность на всех этапах разработки. Нажмите на шаг, чтобы узнать подробности!</p>
-    
+    <h2>How it works?</h2>
+    <p>4 Simple Steps to Launch!</p>
     <div class="steps">
       <div class="step reveal-item" onclick="openStepModal('stepModal1')">
         <div class="step-icon"><i class="fas fa-lightbulb"></i></div>
-        <h3>Идея</h3>
+        <h3>Idea</h3>
       </div>
       <div class="step reveal-item" onclick="openStepModal('stepModal2')">
         <div class="step-icon"><i class="fas fa-comments"></i></div>
-        <h3>Обсуждение</h3>
+        <h3>Discussion</h3>
       </div>
       <div class="step reveal-item" onclick="openStepModal('stepModal3')">
         <div class="step-icon"><i class="fas fa-cogs"></i></div>
-        <h3>Разработка</h3>
+        <h3>Development</h3>
       </div>
       <div class="step reveal-item" onclick="openStepModal('stepModal4')">
         <div class="step-icon"><i class="fas fa-check-circle"></i></div>
-        <h3>Тестирование</h3>
+        <h3>Testing</h3>
       </div>
     </div>
   </section>
 
   <section id="portfolio" class="reveal-item">
-    <h2>Наши работы</h2>
+    <h2>What we can do?</h2>
     <div class="portfolio-grid">
       <div class="portfolio-item reveal-item" onclick="openPortfolioModal('portfolioModal1')">
-        <div class="portfolio-image placeholder">
-            <div class="placeholder-img p1">Бронирование (TEMP IMG)</div>
+        <div class="portfolio-image">
+            <img src="https://i.ibb.co/FL0qyH8y/image.png" alt="Payment Collection">
         </div>
         <div class="portfolio-content">
-          <h3>Бот для Бронирования Столиков</h3>
-          <p>Автоматизированная система резервирования для ресторанов...</p>
+          <h3>Collecting Payments</h3>
+          <p>Accept payments instantly, directly inside Telegram...</p>
         </div>
       </div>
 
       <div class="portfolio-item reveal-item" onclick="openPortfolioModal('portfolioModal2')">
-        <div class="portfolio-image placeholder">
-            <div class="placeholder-img p2">Сбор Лидов (TEMP IMG)</div>
+        <div class="portfolio-image">
+            <img src="https://i.ibb.co/Pf96PPn/2.png" alt="Scheduling">
         </div>
         <div class="portfolio-content">
-          <h3>Бот для Сбора Лидов (Недвижимость)</h3>
-          <p>Система обработки запросов на недвижимость...</p>
+          <h3>Scheduling Through Telegram</h3>
+          <p>Let clients book anytime, without extra tools...</p>
         </div>
       </div>
 
-      <div class="portfolio-item mobile-hide reveal-item" onclick="openPortfolioModal('portfolioModal3')">
-        <div class="portfolio-image placeholder">
-            <div class="placeholder-img p3">Прием Заявок (TEMP IMG)</div>
+      <div class="portfolio-item reveal-item" onclick="openPortfolioModal('portfolioModal3')">
+        <div class="portfolio-image">
+            <img src="https://i.ibb.co/0p1KDDdQ/image.png" alt="Sales Funnel">
         </div>
         <div class="portfolio-content">
-          <h3>Бот для Приема Заявок (HR)</h3>
-          <p>Комплексная система приема заявок на работу...</p>
-        </div>
-      </div>
-
-      <div class="portfolio-item desktop-hide mobile-hide" onclick="openPortfolioModal('portfolioModal4')">
-        <div class="portfolio-image placeholder">
-            <div class="placeholder-img p4">Магазин (TEMP IMG)</div>
-        </div>
-        <div class="portfolio-content">
-          <h3>Бот-Магазин (E-commerce)</h3>
-          <p>Полноценный онлайн-магазин с каталогом, корзиной...</p>
+          <h3>Sales automation funnel</h3>
+          <p>Turn leads into paying clients automatically...</p>
         </div>
       </div>
     </div>
     
     <div style="text-align: center; margin-top: 60px;" class="reveal-item">
-      <a onclick="openContactChoiceModal();" class="btn" style="box-shadow: none; margin-top: 0; padding: 15px 35px; background: linear-gradient(45deg, var(--color-primary), var(--color-secondary)); color: white; cursor: pointer;">
-        💬 Задать Вопрос
+      <a onclick="openContactChoiceModal()" class="detail-cta">
+        💬 Order a solution for your business
       </a>
     </div>
   </section>
 
-  <section id="pricing" class="reveal-item">
-    <h2>Стоимость разработки</h2>
+<section id="pricing" class="reveal-item">
+    
+    <h2>Pricing & Features</h2>
+    <p style="text-align: center; color: #555; font-size: 1.05rem; max-width: 800px; margin: -20px auto 40px;">
+        Choose your full automation package. The final price is calculated based on your needs.
+    </p>
+
     <div class="price-cards">
-      <div class="price-card reveal-item" onclick="openPriceModal('priceModal1')">
-        <h3>Базовый Бот</h3>
-        <div class="price">от $300</div>
-        <div class="teaser">Простые формы, запись на услугу или Q&A логика с быстрой интеграцией...</div>
-      </div>
-      <div class="price-card reveal-item" onclick="openPriceModal('priceModal2')">
-        <h3>Продвинутая Система</h3>
-        <div class="price">от $1200</div>
-        <div class="teaser">Полная автоматизация бизнес-процессов, расширенные интеграции и персонализация...</div>
-      </div>
+        
+        <div class="price-card reveal-item">
+            <h3>Instant Price Calculator</h3>
+            
+            <div class="price" id="dynamicBotPrice">$750</div>
+            
+            <div class="teaser">
+                See your final development fee instantly. Discounts start from 2 locations.
+            </div>
+
+            <div class="slider-container">
+                <label for="locationSlider" class="slider-label">
+                    Number of Locations/Bots: <span id="locationCount" style="color: var(--color-secondary); font-size: 1.5rem;">1</span>
+                </label>
+                
+                <input type="range" min="1" max="10" value="1" class="slider" id="locationSlider">
+
+                <div class="custom-thumb-tracker" id="locationSlider-tracker"></div>
+                
+                <div class="slider-labels">
+                    <span class="label-item">1</span>
+                    <span class="label-item mobile-hide-labels">2</span>
+                    <span class="label-item mobile-hide-labels">3</span>
+                    <span class="label-item mobile-hide-labels">4</span>
+                    <span class="label-item mobile-hide-labels">5</span>
+                    <span class="label-item mobile-hide-labels">6</span>
+                    <span class="label-item mobile-hide-labels">7</span>
+                    <span class="label-item mobile-hide-labels">8</span>
+                    <span class="label-item mobile-hide-labels">9</span>
+                    <span class="label-item">10+</span>
+                </div>
+            </div>
+
+            <div id="discountText" class="discount-text" style="color: var(--color-accent);">
+                Individual bot base price: $750
+            </div>
+            
+            <p style="font-size: 0.95rem; color: #777; margin-top: 25px; margin-bottom: 25px; line-height: 1.4;">
+                <i class="fas fa-wrench" style="color: var(--color-primary); margin-right: 5px;"></i> **Maintenance:** $69/bot/month.
+            </p>
+            
+            <a onclick="openContactChoiceModal();" class="detail-cta" style="margin-top: 0; background: linear-gradient(45deg, var(--color-primary), var(--color-secondary)); color: white;">
+                Order My Bot
+            </a>
+        </div>
+        
+        <div class="price-card reveal-item" style="background: linear-gradient(135deg, #ffffff 0%, #f9f9f9 100%); max-width: 450px;">
+    <h3 style="font-size: 1.6rem; margin-bottom: 15px;">What's Included?</h3>
+    
+    <div style="text-align: center; padding: 15px; background: #f0f4f7; border-radius: 12px; margin-top: 15px;">
+        <h4 style="color: var(--color-secondary); margin-bottom: 15px; font-size: 1.3rem;">💰 One-Time Fee</h4>
+        <div style="font-size: 2.5rem; font-weight: 800; color: var(--color-secondary); margin-bottom: 20px;" id="rightCardOneTimePrice">$750</div>
+        
+        <ul style="list-style: none; padding: 0; margin: 0 0 20px 0; text-align: left;">
+            <li style="margin-bottom: 10px; font-size: 0.9rem; color: #333;">
+                <i class="fas fa-check-circle" style="color: #1dd1a1; margin-right: 8px;"></i>
+                Custom bot development
+            </li>
+            <li style="margin-bottom: 10px; font-size: 0.9rem; color: #333;">
+                <i class="fas fa-check-circle" style="color: #1dd1a1; margin-right: 8px;"></i>
+                Payment integration (PayPal, Stripe)
+            </li>
+            <li style="margin-bottom: 10px; font-size: 0.9rem; color: #333;">
+                <i class="fas fa-check-circle" style="color: #1dd1a1; margin-right: 8px;"></i>
+                Google Sheets integration
+            </li>
+            <li style="margin-bottom: 10px; font-size: 0.9rem; color: #333;">
+                <i class="fas fa-check-circle" style="color: #1dd1a1; margin-right: 8px;"></i>
+                Booking & scheduling system
+            </li>
+            <li style="margin-bottom: 10px; font-size: 0.9rem; color: #333;">
+                <i class="fas fa-check-circle" style="color: #1dd1a1; margin-right: 8px;"></i>
+                Full testing & deployment
+            </li>
+        </ul>
+        
+        <div style="border-top: 2px solid #ddd; padding-top: 15px;">
+            <h4 style="color: var(--color-primary); margin-bottom: 10px; font-size: 1.1rem;">🔧 Monthly Maintenance</h4>
+            <div style="font-size: 1.1rem; color: #555; font-weight: 600;" id="rightCardMaintenancePrice">$69/bot × 1 = <strong>$69/month</strong></div>
+            
+            <ul style="list-style: none; padding: 0; margin: 15px 0 0 0; text-align: left;">
+                <li style="margin-bottom: 8px; font-size: 0.85rem; color: #555;">
+                    <i class="fas fa-server" style="color: var(--color-accent); margin-right: 8px;"></i>
+                    24/7 hosting & monitoring
+                </li>
+                <li style="margin-bottom: 8px; font-size: 0.85rem; color: #555;">
+                    <i class="fas fa-tools" style="color: var(--color-accent); margin-right: 8px;"></i>
+                    Bug fixes & support
+                </li>
+                <li style="margin-bottom: 8px; font-size: 0.85rem; color: #555;">
+                    <i class="fas fa-sync-alt" style="color: var(--color-accent); margin-right: 8px;"></i>
+                    Regular updates
+                </li>
+            </ul>
+        </div>
     </div>
-    <div style="text-align: center; margin-top: 60px;" class="reveal-item">
-        <a onclick="openContactChoiceModal();" class="btn" style="box-shadow: none; margin-top: 0; padding: 15px 35px; background: linear-gradient(45deg, var(--color-accent), var(--color-secondary)); color: var(--color-text-dark); cursor: pointer;">
-          Обсудить Ваш Проект
-        </a>
-    </div>
-  </section>
-  
+    
+    <a onclick="openContactChoiceModal();" class="detail-cta" style="margin-top: 25px; background: linear-gradient(45deg, var(--color-primary), var(--color-secondary)); color: white; padding: 12px 30px; font-size: 1rem;">
+        Get Started Now
+    </a>
+</div>
+
+</section>
+
   <section id="faq" class="reveal-item">
-      <h2>Часто Задаваемые Вопросы</h2>
-      <div class="faq-container">
-          
-          <div class="faq-item reveal-item">
-              <div class="faq-question">
-                  Сколько времени займет разработка моего бота? <i class="fas fa-chevron-down"></i>
-              </div>
-              <div class="faq-answer">
-                  <p>Разработка **Базового Бота** занимает **1-2 дня максимум**. Создание **Продвинутой Системы** — **3-5 дней максимум**. Эти сроки гарантированы при условии, что заказчик остается на связи для оперативного согласования.</p>
-              </div>
-          </div>
-          
-          <div class="faq-item reveal-item">
-              <div class="faq-question">
-                  Какие гарантии вы предоставляете и что входит в поддержку? <i class="fas fa-chevron-down"></i>
-              </div>
-              <div class="faq-answer">
-                  <p>В нашу поддержку входит **полное сопровождение работы бота и его редакция** при необходимости. Мы обеспечиваем стабильность системы, чтобы она работала без сбоев. Если возникнут вопросы или потребуется мелкая правка логики, мы всегда на связи.</p>
-              </div>
-          </div>
-          
-          <div class="faq-item reveal-item">
-              <div class="faq-question">
-                  С какими сервисами вы можете интегрировать функционал бота? <i class="fas fa-chevron-down"></i>
-              </div>
-              <div class="faq-answer">
-                  <p>Мы интегрируем бота с **Google Sheets** для удобного сбора и хранения данных. Кроме того, мы работаем **практически со всеми платежными системами** (эквайринг), при условии, что у клиента есть активный аккаунт и платежная страница.</p>
-              </div>
-          </div>
-          
-          <div class="faq-item reveal-item">
-              <div class="faq-question">
-                  Потребуется ли мне технический специалист для управления ботом после запуска? <i class="fas fa-chevron-down"></i>
-              </div>
-              <div class="faq-answer">
-                  <p>Нет, не потребуется. Мы создаем максимально удобные и интуитивно понятные системы. Все управление осуществляется через простой интерфейс. Если у вас возникнут вопросы, вы всегда можете обратиться в нашу службу поддержки, хотя мы уверены, что вряд ли она понадобится.</p>
-              </div>
-          </div>
-          
-          <div class="faq-item reveal-item">
-              <div class="faq-question">
-                  Как происходит оплата за разработку? <i class="fas fa-chevron-down"></i>
-              </div>
-              <div class="faq-answer">
-                  <p>Мы работаем по принципу **100% аванса**. Это позволяет нам сразу же приступить к работе и гарантировать быстрое выполнение проекта без задержек.</p>
-              </div>
-          </div>
-          
-      </div>
+    <h2>Часто Задаваемые Вопросы</h2>
+    <div class="faq-container">
+        
+        <div class="faq-item reveal-item">
+            <div class="faq-question">
+                Сколько времени займет разработка моего бота? <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Разработка Базового Бота занимает 1-2 дня максимум. Создание Продвинутой Системы — 3-5 дней максимум. Эти сроки гарантированы при условии, что заказчик остается на связи для оперативного согласования.</p>
+            </div>
+        </div>
+        
+        <div class="faq-item reveal-item">
+            <div class="faq-question">
+                Какие гарантии вы предоставляете и что входит в поддержку? <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>В нашу поддержку входит полное сопровождение работы бота и его редакция при необходимости. Мы обеспечиваем стабильность системы, чтобы она работала без сбоев. Если возникнут вопросы или потребуется мелкая правка логики, мы всегда на связи.</p>
+            </div>
+        </div>
+        
+        <div class="faq-item reveal-item">
+            <div class="faq-question">
+                С какими сервисами вы можете интегрировать функционал бота? <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Мы интегрируем бота с Google Sheets для удобного сбора и хранения данных. Кроме того, мы работаем практически со всеми платежными системами (эквайринг), при условии, что у клиента есть активный аккаунт и платежная страница.</p>
+            </div>
+        </div>
+        
+        <div class="faq-item reveal-item">
+            <div class="faq-question">
+                Потребуется ли мне технический специалист для управления ботом после запуска? <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Нет, не потребуется. Мы создаем максимально удобные и интуитивно понятные системы. Все управление осуществляется через простой интерфейс. Если у вас возникнут вопросы, вы всегда можете обратиться в нашу службу поддержки.</p>
+            </div>
+        </div>
+        
+        <div class="faq-item reveal-item">
+            <div class="faq-question">
+                Как происходит оплата за разработку? <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Мы работаем по принципу 100% аванса. Это позволяет нам сразу же приступить к работе и гарантировать быстрое выполнение проекта без задержек.</p>
+            </div>
+        </div>
+        
+    </div>
   </section>
 
   <footer>
     <p>Связь: 
         <a class="socials" href="https://t.me/bontarget" target="_blank"><i class="fab fa-telegram-plane"></i> Telegram</a> | 
-        <a class="socials" href="https://www.instagram.com/bontarget.official" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+        <a class="socials" href="https://www.instagram.com/bontarget.eu" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
     </p>
     <p>&copy; 2025 BonTarget. Все права защищены.</p>
   </footer>
 
+  <!-- Contact Modal -->
   <div id="contactChoiceModal" class="modal-backdrop" onclick="closeModalByClick(event, 'contactChoiceModal')">
     <div class="modal-content-base">
         <span class="modal-close" onclick="closeModal('contactChoiceModal')">&times;</span>
@@ -1235,275 +1483,304 @@
     </div>
   </div>
 
-
+  <!-- Step Modals -->
   <div id="stepModal1" class="modal-backdrop" onclick="closeModalByClick(event, 'stepModal1')">
     <div class="modal-content-base">
       <span class="modal-close" onclick="closeModal('stepModal1')">&times;</span>
-      <h3>💡 Идея</h3>
+      <h3>💡 Idea</h3>
       <div class="modal-image-container">
-          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 50'%3E%3Crect width='100' height='50' fill='%23e0e7ff'/%3E%3Ctext x='50' y='28' font-family='Arial' font-size='8' fill='%231a2a6c' text-anchor='middle'%3EИдея: Обсуждение и ТЗ (TEMP IMG)%3C/text%3E%3C/svg%3E" alt="Идея">
+        <img src="https://i.ibb.co/q3rM8f6L/Chat-GPT-Image-21-2025-17-19-16-1.png" alt="Идея">
       </div>
-      <p>На первом этапе мы углубляемся в суть вашего проекта, определяя ключевые бизнес-цели и формируя детальное техническое задание для будущего бота.</p>
-      <a onclick="openContactChoiceModal(); closeModal('stepModal1');" class="detail-cta">Начать обсуждение</a>
+      <p>Every project starts with a simple idea.</p>
     </div>
   </div>
+
   <div id="stepModal2" class="modal-backdrop" onclick="closeModalByClick(event, 'stepModal2')">
     <div class="modal-content-base">
       <span class="modal-close" onclick="closeModal('stepModal2')">&times;</span>
-      <h3>💬 Обсуждение</h3>
+      <h3>💬 Discussion</h3>
       <div class="modal-image-container">
-          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 50'%3E%3Crect width='100' height='50' fill='%23fffbeb'/%3E%3Ctext x='50' y='28' font-family='Arial' font-size='8' fill='%23333' text-anchor='middle'%3EОбсуждение: Архитектура и Дизайн (TEMP IMG)%3C/text%3E%3C/svg%3E" alt="Обсуждение">
+          <img src="https://i.ibb.co/xq4p5ngW/Chat-GPT-Image-21-2025-17-22-57.png" alt="Обсуждение">
       </div>
-      <p>Мы оперативно согласуем архитектуру, функционал и дизайн интерфейса бота, используя эффективные каналы связи для максимальной скорости и вашего удобства.</p>
-      <a onclick="openContactChoiceModal(); closeModal('stepModal2');" class="detail-cta">Начать обсуждение</a>
+      <p>We map your process and turn it into a clear, logical flow.</p>
     </div>
   </div>
+
   <div id="stepModal3" class="modal-backdrop" onclick="closeModalByClick(event, 'stepModal3')">
     <div class="modal-content-base">
       <span class="modal-close" onclick="closeModal('stepModal3')">&times;</span>
-      <h3>⚙️ Разработка</h3>
+      <h3>⚙️ Development</h3>
       <div class="modal-image-container">
-          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 50'%3E%3Crect width='100' height='50' fill='%23f0e7ff'/%3E%3Ctext x='50' y='28' font-family='Arial' font-size='8' fill='%231a2a6c' text-anchor='middle'%3EРазработка: Код и Интеграции (TEMP IMG)%3C/text%3E%3C/svg%3E" alt="Разработка">
+          <img src="https://i.ibb.co/YTpJcM4b/Chat-GPT-Image-21-2025-17-26-06.png" alt="Разработка">
       </div>
-      <p>Наша команда создаёт уникальное решение, полностью адаптированное под специфику вашего бизнеса, гарантируя исключительную производительность и масштабируемость.</p>
-      <a onclick="openContactChoiceModal(); closeModal('stepModal3');" class="detail-cta">Начать обсуждение</a>
+      <p>We build your bot step by step, checking each part as we go.</p>
     </div>
   </div>
+
   <div id="stepModal4" class="modal-backdrop" onclick="closeModalByClick(event, 'stepModal4')">
     <div class="modal-content-base">
       <span class="modal-close" onclick="closeModal('stepModal4')">&times;</span>
-      <h3>✅ Тестирование</h3>
+      <h3>✅ Testing</h3>
       <div class="modal-image-container">
-          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 50'%3E%3Crect width='100' height='50' fill='%23e2f9ee'/%3E%3Ctext x='50' y='28' font-family='Arial' font-size='8' fill='%23333' text-anchor='middle'%3EТестирование: QA и Запуск (TEMP IMG)%3C/text%3E%3C/svg%3E" alt="Тестирование">
+          <img src="https://i.ibb.co/23wSLGyg/Chat-GPT-Image-21-2025-17-33-24.png" alt="Тестирование">
       </div>
-      <p>Проводим всестороннее тестирование функционала, безопасности и пользовательского опыта, чтобы убедиться в безупречной работе бота перед его запуском.</p>
-      <a onclick="openContactChoiceModal(); closeModal('stepModal4');" class="detail-cta">Начать обсуждение</a>
+      <p>We make sure everything works smoothly before launch.</p>
+      <a onclick="openContactChoiceModal(); closeModal('stepModal4');" class="detail-cta">Get Started</a>
     </div>
   </div>
 
+  <!-- Portfolio Modals -->
   <div id="portfolioModal1" class="modal-backdrop" onclick="closeModalByClick(event, 'portfolioModal1')">
     <div class="modal-content-base">
       <span class="modal-close" onclick="closeModal('portfolioModal1')">&times;</span>
-      <h3>Бот для Бронирования Столиков</h3>
-      <p>Автоматизированная система резервирования для ресторанов и кафе, позволяющая клиентам выбирать дату, время, столик и вносить предоплату. Все данные мгновенно интегрируются в CRM ресторана.</p>
-      <a onclick="openContactChoiceModal(); closeModal('portfolioModal1');" class="detail-cta">Заказать подобное решение</a>
+      <div class="modal-image-container">
+        <img src="https://i.ibb.co/FL0qyH8y/image.png" alt="Payment Collection">
+      </div>
+      <h3>Collecting Payments</h3>
+      <p>Collect payments seamlessly through Telegram, instantly confirming transactions and sending receipts automatically. Works with PayPal now, and can integrate with other payment systems in the future. Perfect for bookings, sales, or any service workflow.</p>
+      <a onclick="openContactChoiceModal(); closeModal('portfolioModal1');" class="detail-cta">Order a similar solution</a>
     </div>
   </div>
+
   <div id="portfolioModal2" class="modal-backdrop" onclick="closeModalByClick(event, 'portfolioModal2')">
     <div class="modal-content-base">
       <span class="modal-close" onclick="closeModal('portfolioModal2')">&times;</span>
-      <h3>Бот для Сбора Лидов (Недвижимость)</h3>
-      <p>Интеллектуальная система квалификации и сбора лидов для агентств недвижимости. Бот задает уточняющие вопросы, квалифицирует лида и автоматически планирует просмотры.</p>
-      <a onclick="openContactChoiceModal(); closeModal('portfolioModal2');" class="detail-cta">Заказать подобное решение</a>
+      <div class="modal-image-container">
+        <img src="https://i.ibb.co/Pf96PPn/2.png" alt="Scheduling">
+      </div>
+      <h3>Scheduling Through Telegram</h3>
+      <p>The bot handles all client bookings and updates your calendar automatically. Although shown with barbershops and salons, it works for any niche where appointments are needed, from fitness studios to clinics or consulting services.</p>
+      <a onclick="openContactChoiceModal(); closeModal('portfolioModal2');" class="detail-cta">Order a similar solution</a>
     </div>
   </div>
+
   <div id="portfolioModal3" class="modal-backdrop" onclick="closeModalByClick(event, 'portfolioModal3')">
     <div class="modal-content-base">
       <span class="modal-close" onclick="closeModal('portfolioModal3')">&times;</span>
-      <h3>Бот для Приема Заявок (HR)</h3>
-      <p>Комплексная система автоматизации воронки найма, от первичного контакта с кандидатом до назначения собеседований. Бот принимает резюме и передает данные в HR-систему.</p>
-      <a onclick="openContactChoiceModal(); closeModal('portfolioModal3');" class="detail-cta">Заказать подобное решение</a>
-    </div>
-  </div>
-  <div id="portfolioModal4" class="modal-backdrop" onclick="closeModalByClick(event, 'portfolioModal4')">
-    <div class="modal-content-base">
-      <span class="modal-close" onclick="closeModal('portfolioModal4')">&times;</span>
-      <h3>Бот-Магазин (E-commerce)</h3>
-      <p>Полноценный онлайн-магазин в Telegram, предлагающий интуитивный каталог товаров, удобную корзину, упрощенное оформление заказа и интегрированные платежные шлюзы.</p>
-      <a onclick="openContactChoiceModal(); closeModal('portfolioModal4');" class="detail-cta">Заказать подобное решение</a>
-    </div>
-  </div>
-
-  <div id="priceModal1" class="modal-backdrop" onclick="closeModalByClick(event, 'priceModal1')">
-    <div class="modal-content-base">
-      <span class="modal-close" onclick="closeModal('priceModal1')">&times;</span>
-      <h3>Базовый Бот (от $300)</h3>
       <div class="modal-image-container">
-          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 50'%3E%3Crect width='100' height='50' fill='%23fef3c7'/%3E%3Ctext x='50' y='28' font-family='Arial' font-size='8' fill='%23333' text-anchor='middle'%3EБазовый Сценарий (TEMP IMG)%3C/text%3E%3C/svg%3E" alt="Базовый Бот">
+        <img src="https://i.ibb.co/0p1KDDdQ/image.png" alt="Sales Funnel">
       </div>
-      <p style="margin-bottom: 15px;">Идеально подходит для быстрого запуска и тестирования гипотез.</p>
-      <ul class="feature-list">
-        <li><i class="fas fa-arrow-right"></i> До 10 линейных команд</li>
-        <li><i class="fas fa-arrow-right"></i> **Срок разработки: 1-2 дня**</li>
-        <li><i class="fas fa-arrow-right"></i> Интеграция с одним внешним сервисом (Google Sheets)</li>
-        <li><i class="fas fa-arrow-right"></i> Сбор контактных данных и информации</li>
-        <li><i class="fas fa-arrow-right"></i> Базовый дизайн и Q&A логика</li>
-      </ul>
-      <a onclick="openContactChoiceModal(); closeModal('priceModal1');" class="detail-cta">Заказать Базовое Решение</a>
+      <h3>Sales automation funnel</h3>
+      <p>Turn every lead into a structured workflow that automates follow-ups, updates records, and tracks progress. Ideal for any business where sales, appointments, or services are offered, from education and healthcare to shops and service providers.</p>
+      <a onclick="openContactChoiceModal(); closeModal('portfolioModal3');" class="detail-cta">Order a similar solution</a>
     </div>
   </div>
-  <div id="priceModal2" class="modal-backdrop" onclick="closeModalByClick(event, 'priceModal2')">
-    <div class="modal-content-base">
-      <span class="modal-close" onclick="closeModal('priceModal2')">&times;</span>
-      <h3>Продвинутая Система (от $1200)</h3>
-      <div class="modal-image-container">
-          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 50'%3E%3Crect width='100' height='50' fill='%23d1fae5'/%3E%3Ctext x='50' y='28' font-family='Arial' font-size='8' fill='%23333' text-anchor='middle'%3EСложная Система с Интеграциями (TEMP IMG)%3C/text%3E%3C/svg%3E" alt="Продвинутая Система">
-      </div>
-      <p style="margin-bottom: 15px;">Комплексная система для полной автоматизации вашего бизнеса.</p>
-      <ul class="feature-list">
-        <li><i class="fas fa-cogs"></i> Нелинейный, разветвленный сценарий</li>
-        <li><i class="fas fa-cogs"></i> **Срок разработки: 3-5 дней**</li>
-        <li><i class="fas fa-cogs"></i> Интеграция с CRM, ERP, API</li>
-        <li><i class="fas fa-cogs"></i> Платежные шлюзы и личный кабинет пользователя</li>
-        <li><i class="fas fa-cogs"></i> Полное техническое сопровождение</li>
-      </ul>
-      <a onclick="openContactChoiceModal(); closeModal('priceModal2');" class="detail-cta">Обсудить Продвинутую Систему</a>
-    </div>
-  </div>
-
-  <div id="contactPopup" class="footer-popup">
-      <span class="footer-popup-close" onclick="closePopup('contactPopup')">&times;</span>
-      <h4>Не знаете, какой бот нужен вашему бизнесу?</h4>
-      <div class="footer-popup-buttons">
-          <a class="footer-popup-btn" onclick="openContactChoiceModal(); closePopup('contactPopup');">Получить бесплатную консультацию</a>
-          <a href="https://t.me/bontarget" target="_blank" class="footer-popup-btn">Сразу написать в Telegram</a>
-      </div>
-  </div>
-
 
   <script>
-    // -------------------------------------
-    // 13. ЛОГИКА JAVASCRIPT
-    // -------------------------------------
-
-    /**
-     * Открывает любое модальное окно.
-     * @param {string} id - ID модального окна.
-     */
-    function openModal(id) {
-        const modal = document.getElementById(id);
-        if (modal) {
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden'; 
-        }
-    }
-
-    /**
-     * Закрывает любое модальное окно.
-     * @param {string} id - ID модального окна.
-     */
-    function closeModal(id) {
-        const modal = document.getElementById(id);
-        if (modal) {
-            modal.classList.remove('active');
-            if (document.querySelectorAll('.modal-backdrop.active').length === 0) {
-                document.body.style.overflow = '';
-            }
-        }
-    }
-
-    // НОВАЯ ФУНКЦИЯ: Открывает окно выбора контакта
-    function openContactChoiceModal() {
-        openModal('contactChoiceModal');
-    }
-    
-    // Удобные функции-обертки для кликабельных секций
-    function openStepModal(id) {
-        openModal(id);
-    }
-    function openPortfolioModal(id) {
-        openModal(id);
-    }
-    function openPriceModal(id) {
-        openModal(id);
-    }
-
-    /**
-     * Закрывает модальное окно при клике на бэкдроп.
-     */
-    function closeModalByClick(event, id) {
-        const modal = document.getElementById(id);
-        if (event.target === modal) {
-            closeModal(id);
-        }
-    }
-
-    // ЛОГИКА ДЛЯ FOOTER POPUP
     const POPUP_CLOSED_KEY = 'contactPopupClosed';
+const BASE_PRICE_PER_BOT = 750;
+const MULTI_BOT_DISCOUNT_PERCENT = 0.15;
+const MONTHLY_MAINTENANCE_PER_BOT = 69;
 
-    function openPopup(id) {
-        const popup = document.getElementById(id);
-        if (popup && localStorage.getItem(POPUP_CLOSED_KEY) !== 'true') {
-            popup.classList.add('active');
+const PRICE_LIST = {
+    1: 750, 2: 1275, 3: 1910, 4: 2550, 5: 3190,
+    6: 3830, 7: 4470, 8: 5110, 9: 5750, 10: 6390
+};
+
+let mainCalculatorInitialized = false;
+
+function openModal(id) {
+    const modal = document.getElementById(id);
+    if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeModal(id) {
+    const modal = document.getElementById(id);
+    if (modal) {
+        modal.classList.remove('active');
+        if (document.querySelectorAll('.modal-backdrop.active').length === 0) {
+            document.body.style.overflow = '';
         }
     }
+}
 
-    function closePopup(id) {
-        const popup = document.getElementById(id);
-        if (popup) {
-            popup.classList.remove('active');
-            localStorage.setItem(POPUP_CLOSED_KEY, 'true');
+function closeModalByClick(event, id) {
+    if (event.target === document.getElementById(id)) {
+        closeModal(id);
+    }
+}
+
+function openStepModal(modalId) { openModal(modalId); }
+function openPortfolioModal(modalId) { openModal(modalId); }
+
+function openContactChoiceModal() {
+    openModal('contactChoiceModal');
+}
+
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        document.querySelectorAll('.modal-backdrop.active').forEach(modal => {
+            closeModal(modal.id);
+        });
+    }
+});
+
+/**
+ * ОБНОВЛЕНО: Рассчитывает позицию эмодзи-трекера для точного совпадения с метками.
+ */
+function updateCustomThumbPosition(slider) {
+    const tracker = document.getElementById(slider.id + '-tracker');
+    if (!tracker) return;
+    
+    const value = parseInt(slider.value, 10);
+    const min = parseInt(slider.min, 10);
+    const max = parseInt(slider.max, 10);
+    
+    // Рассчитываем процент положения (от 0.0 до 1.0)
+    const percent = (value - min) / (max - min);
+    
+    const sliderWidth = slider.offsetWidth;
+    
+    // КРИТИЧЕСКИ ВАЖНО: позиция = процент от полной ширины
+    // Это совпадет с justify-content: space-between у меток
+    const position = percent * sliderWidth;
+    
+    tracker.style.left = `${position}px`;
+}
+
+function initializeMainCalculator() {
+    if (mainCalculatorInitialized) return;
+
+    const slider = document.getElementById('locationSlider');
+    const tracker = document.getElementById('locationSlider-tracker');
+    const priceDisplay = document.getElementById('dynamicBotPrice');
+    const locationCount = document.getElementById('locationCount');
+    const discountText = document.getElementById('discountText');
+    
+    const rightCardPrice = document.getElementById('rightCardOneTimePrice');
+    const rightCardMaintenance = document.getElementById('rightCardMaintenancePrice');
+
+    if (!slider || !tracker) return;
+
+    tracker.textContent = '🕴🏻';
+
+    function updateAll() {
+        const locations = parseInt(slider.value, 10);
+        const price = PRICE_LIST[locations] || PRICE_LIST[10];
+        const originalPrice = locations * BASE_PRICE_PER_BOT;
+        const monthlyTotal = locations * MONTHLY_MAINTENANCE_PER_BOT;
+
+        priceDisplay.textContent = `$${price}`;
+        locationCount.textContent = locations;
+
+        if (locations >= 2) {
+            const savedAmount = originalPrice - price;
+            discountText.innerHTML = `<i class="fas fa-tags"></i> You save <strong>$${savedAmount}</strong> with <strong>15% discount</strong>!`;
+            discountText.style.color = '#1dd1a1';
+        } else {
+            discountText.innerHTML = `Individual bot base price: $${BASE_PRICE_PER_BOT}`;
+            discountText.style.color = '#ff6b6b';
         }
+
+        if (rightCardPrice) {
+            rightCardPrice.textContent = `$${price}`;
+        }
+        if (rightCardMaintenance) {
+            rightCardMaintenance.innerHTML = `$${MONTHLY_MAINTENANCE_PER_BOT}/bot × ${locations} = <strong>$${monthlyTotal}/month</strong>`;
+        }
+
+        updateCustomThumbPosition(slider);
     }
 
-    window.addEventListener('load', () => {
-        setTimeout(() => {
-            openPopup('contactPopup');
-        }, 5000); // 5 секунд
-        
-        // Запуск логики Scroll Reveal
-        setupScrollReveal();
-        
-        // Запуск логики FAQ
-        setupFaqToggle();
+    // =========================================================
+    // ЛОГИКА ПЕРЕТАСКИВАНИЯ (DRAG & DROP) ДЛЯ ЭМОДЗИ-ТРЕКЕРА
+    // =========================================================
+    let isDragging = false;
+
+    // 1. Активируем перетаскивание при нажатии на трекер
+    tracker.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        e.preventDefault(); 
     });
 
-    // -------------------------------------
-    // 14. ЛОГИКА SCROLL REVEAL (ПЛАВНОЕ ПОЯВЛЕНИЕ)
-    // -------------------------------------
+    // 2. Обновляем ползунок при перемещении мыши
+    document.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
 
-    function setupScrollReveal() {
-        const revealElements = document.querySelectorAll('.reveal-item');
+        const sliderContainer = slider.parentElement; 
+        const containerRect = sliderContainer.getBoundingClientRect();
+        
+        // Позиция курсора внутри контейнера
+        let newX = e.clientX - containerRect.left;
 
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
+        // Ограничиваем X-координату в пределах контейнера
+        if (newX < 0) newX = 0;
+        if (newX > containerRect.width) newX = containerRect.width;
+
+        // Вычисляем процент положения
+        const percent = newX / containerRect.width;
+        
+        // Вычисляем новое значение для скрытого ползунка
+        const min = parseInt(slider.min, 10);
+        const max = parseInt(slider.max, 10);
+        const range = max - min;
+        
+        // Округляем до ближайшего шага (целое число от 1 до 10)
+        const newValue = Math.round(percent * range) + min;
+
+        // Устанавливаем новое значение и вызываем обновление
+        slider.value = newValue;
+        updateAll(); 
+    });
+
+    // 3. Завершаем перетаскивание при отпускании кнопки мыши
+    document.addEventListener('mouseup', () => {
+        isDragging = false;
+    });
+    // =========================================================
+
+    // Обработчик 'input' для обычного взаимодействия с ползунком
+    slider.addEventListener('input', updateAll);
+    
+    // Первоначальный вызов
+    updateAll();
+    
+    // Дополнительный вызов для корректировки позиции при изменении размера окна
+    window.addEventListener('resize', () => updateCustomThumbPosition(slider));
+    
+    mainCalculatorInitialized = true;
+}
+
+function setupFaqToggle() {
+    document.querySelectorAll('.faq-question').forEach(question => {
+        question.addEventListener('click', () => {
+            const answer = question.nextElementSibling;
+            const isActive = question.classList.contains('active');
+            document.querySelectorAll('.faq-question.active').forEach(activeQ => {
+                activeQ.classList.remove('active');
+                activeQ.nextElementSibling.classList.remove('active');
+                activeQ.nextElementSibling.style.maxHeight = null;
             });
-        }, {
-            rootMargin: '0px',
-            threshold: 0.1 
+            if (!isActive) {
+                question.classList.add('active');
+                answer.classList.add('active');
+                answer.style.maxHeight = answer.scrollHeight + 50 + "px";
+            }
         });
+    });
+}
 
-        revealElements.forEach(el => {
-            observer.observe(el);
+function setupScrollReveal() {
+    const revealElements = document.querySelectorAll('.reveal-item');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
         });
-    }
+    }, { threshold: 0.1 });
+    revealElements.forEach(el => observer.observe(el));
+}
 
-    // -------------------------------------
-    // 15. ЛОГИКА FAQ (АККОРДЕОН)
-    // -------------------------------------
-
-    function setupFaqToggle() {
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const answer = question.nextElementSibling;
-                const isActive = question.classList.contains('active');
-
-                // Закрываем все другие
-                document.querySelectorAll('.faq-question.active').forEach(activeQ => {
-                    activeQ.classList.remove('active');
-                    activeQ.nextElementSibling.classList.remove('active');
-                    activeQ.nextElementSibling.style.maxHeight = null;
-                });
-
-                // Открываем/Закрываем текущий
-                if (!isActive) {
-                    question.classList.add('active');
-                    answer.classList.add('active');
-                    // Устанавливаем высоту контента
-                    answer.style.maxHeight = answer.scrollHeight + 50 + "px"; // +50px для запаса
-                } else {
-                    question.classList.remove('active');
-                    answer.classList.remove('active');
-                    answer.style.maxHeight = null;
-                }
-            });
-        });
-    }
-
-  </script>
+document.addEventListener('DOMContentLoaded', () => {
+    setupFaqToggle();
+    setupScrollReveal();
+    initializeMainCalculator();
+});
+</script>
 </body>
 </html>
