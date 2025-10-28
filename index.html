@@ -1616,11 +1616,14 @@
   <script>
     const POPUP_CLOSED_KEY = 'contactPopupClosed';
 const BASE_PRICE_PER_BOT = 750;
-const MULTI_BOT_DISCOUNT_PERCENT = 0.15;
 const MONTHLY_MAINTENANCE_PER_BOT = 69;
 
 const PRICE_LIST = {
-    1: 750, 2: 1275, 3: 1910, 4: 2550, 5: 3190
+    1: 750,
+    2: 750 + (750 * 0.92),  // 8% скидка на второй бот
+    3: 750 + (750 * 0.92) + (750 * 0.90),  // 8% на 2-й, 10% на 3-й
+    4: 750 + (750 * 0.92) + (750 * 0.90) + (750 * 0.88),  // 8%, 10%, 12%
+    5: 750 + (750 * 0.92) + (750 * 0.90) + (750 * 0.88) + (750 * 0.85)  // 8%, 10%, 12%, 15%
 };
 
 let mainCalculatorInitialized = false;
@@ -1712,9 +1715,19 @@ function initializeMainCalculator() {
         priceDisplay.textContent = `$${price}`;
         locationCount.textContent = locations;
 
-        if (locations >= 2) {
-            const savedAmount = originalPrice - price;
-            discountText.innerHTML = `<i class="fas fa-tags"></i> You save <strong>$${savedAmount}</strong> with <strong>15% discount</strong>!`;
+if (locations >= 2) {
+    const savedAmount = originalPrice - price;
+    let discountInfo = '';
+    if (locations === 2) {
+        discountInfo = '8% discount';
+    } else if (locations === 3) {
+        discountInfo = 'up to 10% discount';
+    } else if (locations === 4) {
+        discountInfo = 'up to 12% discount';
+    } else {
+        discountInfo = 'up to 15% discount';
+    }
+    discountText.innerHTML = `<i class="fas fa-tags"></i> You save <strong>$${savedAmount}</strong> with <strong>${discountInfo}</strong>!`;
             discountText.style.color = '#1dd1a1';
         } else {
             discountText.innerHTML = `Individual bot base price: $${BASE_PRICE_PER_BOT}`;
@@ -1842,6 +1855,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupScrollReveal();
     initializeMainCalculator();
 });
+
 </script>
 </body>
 </html>
