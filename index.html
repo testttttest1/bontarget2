@@ -356,7 +356,7 @@
     }
 
     .portfolio-image {
-        width: 100%;
+        width: 125%;
         height: 220px;
         background: #f8f9fa;
         display: flex;
@@ -615,16 +615,12 @@
 .custom-thumb-tracker::before {
     content: '';
     position: absolute;
-    /* Размер невидимой кликабельной области */
-    width: 60px; 
-    height: 60px; 
-    /* Центрирование */
+    width: 70px; 
+    height: 70px; 
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    /* Делаем невидимым */
     background: transparent; 
-    /* Помещаем под эмодзи */
     z-index: -1; 
 }
 
@@ -1041,6 +1037,61 @@
     }
 
     /* RESPONSIVE */
+
+    /* TABLET / IPAD */
+@media (min-width: 769px) and (max-width: 1024px) {
+    header h1 {
+        font-size: 3rem;
+    }
+
+    header p {
+        font-size: 1.2rem;
+    }
+
+    .hero-stats {
+        gap: 25px;
+        margin-top: 35px;
+    }
+
+    .hero-stat-item h4 {
+        font-size: 1.6rem;
+    }
+
+    section h2 {
+        font-size: 2.5rem;
+    }
+
+    .steps {
+        gap: 20px;
+    }
+
+    .step {
+        flex: 1 1 calc(50% - 20px);
+        min-height: 140px;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    .price-cards {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .price-card {
+        max-width: 45%;
+        min-width: 350px;
+    }
+
+    .custom-thumb-tracker {
+        font-size: 50px;
+    }
+}
+
+/* MOBILE */
     @media (max-width: 768px) {
         header {
     padding: 60px 20px;
@@ -1063,14 +1114,30 @@
             margin-top: 40px;
         }
 
-        .hero-stats {
-            flex-direction: column;
-            gap: 20px;
-        }
+.hero-stats {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+    padding-top: 20px;
+}
 
-        .hero-stat-item {
-            padding: 10px 0;
-        }
+.hero-stat-item {
+    padding: 8px 0;
+    max-width: 100%;
+}
+
+.hero-stat-item i {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+}
+
+.hero-stat-item h4 {
+    font-size: 1.4rem;
+}
+
+.hero-stat-item p {
+    font-size: 0.9rem;
+}
 
         section {
             padding: 60px 20px;
@@ -1662,52 +1729,67 @@ function initializeMainCalculator() {
         updateCustomThumbPosition(slider);
     }
 
-    // =========================================================
-    // ЛОГИКА ПЕРЕТАСКИВАНИЯ (DRAG & DROP) ДЛЯ ЭМОДЗИ-ТРЕКЕРА
-    // =========================================================
-    let isDragging = false;
+// =========================================================
+// ЛОГИКА ПЕРЕТАСКИВАНИЯ (DRAG & DROP) ДЛЯ ЭМОДЗИ-ТРЕКЕРА
+// =========================================================
+let isDragging = false;
 
-    // 1. Активируем перетаскивание при нажатии на трекер
-    tracker.addEventListener('mousedown', (e) => {
-        isDragging = true;
-        e.preventDefault(); 
-    });
+// Универсальная функция для обработки движения
+function handleMove(clientX) {
+    if (!isDragging) return;
 
-    // 2. Обновляем ползунок при перемещении мыши
-    document.addEventListener('mousemove', (e) => {
-        if (!isDragging) return;
+    const sliderContainer = slider.parentElement; 
+    const containerRect = sliderContainer.getBoundingClientRect();
+    
+    let newX = clientX - containerRect.left;
 
-        const sliderContainer = slider.parentElement; 
-        const containerRect = sliderContainer.getBoundingClientRect();
-        
-        // Позиция курсора внутри контейнера
-        let newX = e.clientX - containerRect.left;
+    if (newX < 0) newX = 0;
+    if (newX > containerRect.width) newX = containerRect.width;
 
-        // Ограничиваем X-координату в пределах контейнера
-        if (newX < 0) newX = 0;
-        if (newX > containerRect.width) newX = containerRect.width;
+    const percent = newX / containerRect.width;
+    const min = parseInt(slider.min, 10);
+    const max = parseInt(slider.max, 10);
+    const range = max - min;
+    const newValue = Math.round(percent * range) + min;
 
-        // Вычисляем процент положения
-        const percent = newX / containerRect.width;
-        
-        // Вычисляем новое значение для скрытого ползунка
-        const min = parseInt(slider.min, 10);
-        const max = parseInt(slider.max, 10);
-        const range = max - min;
-        
-        // Округляем до ближайшего шага (целое число от 1 до 10)
-        const newValue = Math.round(percent * range) + min;
+    slider.value = newValue;
+    updateAll(); 
+}
 
-        // Устанавливаем новое значение и вызываем обновление
-        slider.value = newValue;
-        updateAll(); 
-    });
+// МЫШЬ: Начало
+tracker.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    e.preventDefault(); 
+});
 
-    // 3. Завершаем перетаскивание при отпускании кнопки мыши
-    document.addEventListener('mouseup', () => {
-        isDragging = false;
-    });
-    // =========================================================
+// МЫШЬ: Движение
+document.addEventListener('mousemove', (e) => {
+    handleMove(e.clientX);
+});
+
+// МЫШЬ: Завершение
+document.addEventListener('mouseup', () => {
+    isDragging = false;
+});
+
+// ТАЧ: Начало
+tracker.addEventListener('touchstart', (e) => {
+    isDragging = true;
+    e.preventDefault();
+});
+
+// ТАЧ: Движение
+document.addEventListener('touchmove', (e) => {
+    if (isDragging && e.touches.length > 0) {
+        handleMove(e.touches[0].clientX);
+    }
+}, { passive: false });
+
+// ТАЧ: Завершение
+document.addEventListener('touchend', () => {
+    isDragging = false;
+});
+// =========================================================
 
     // Обработчик 'input' для обычного взаимодействия с ползунком
     slider.addEventListener('input', updateAll);
@@ -1757,62 +1839,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setupFaqToggle();
     setupScrollReveal();
     initializeMainCalculator();
-});
-
-// Функция обработки движения (универсальная для мыши и тача)
-function handleMove(clientX) {
-    if (!isDragging) return;
-
-    const sliderContainer = slider.parentElement; 
-    const containerRect = sliderContainer.getBoundingClientRect();
-    
-    let newX = clientX - containerRect.left;
-
-    if (newX < 0) newX = 0;
-    if (newX > containerRect.width) newX = containerRect.width;
-
-    const percent = newX / containerRect.width;
-    const min = parseInt(slider.min, 10);
-    const max = parseInt(slider.max, 10);
-    const range = max - min;
-    const newValue = Math.round(percent * range) + min;
-
-    slider.value = newValue;
-    updateAll(); 
-}
-
-// МЫШЬ: Начало перетаскивания
-tracker.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    e.preventDefault(); 
-});
-
-// МЫШЬ: Движение
-document.addEventListener('mousemove', (e) => {
-    handleMove(e.clientX);
-});
-
-// МЫШЬ: Завершение
-document.addEventListener('mouseup', () => {
-    isDragging = false;
-});
-
-// ТАЧ: Начало перетаскивания
-tracker.addEventListener('touchstart', (e) => {
-    isDragging = true;
-    e.preventDefault();
-});
-
-// ТАЧ: Движение
-document.addEventListener('touchmove', (e) => {
-    if (isDragging && e.touches.length > 0) {
-        handleMove(e.touches[0].clientX);
-    }
-});
-
-// ТАЧ: Завершение
-document.addEventListener('touchend', () => {
-    isDragging = false;
 });
 </script>
 </body>
