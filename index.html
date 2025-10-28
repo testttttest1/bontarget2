@@ -457,6 +457,13 @@
     margin-bottom: 30px;
 }
 
+.discount-text {
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /* ------------------ */
 /* СПИСОК ФУНКЦИЙ В КАРТОЧКЕ */
 /* ------------------ */
@@ -1718,8 +1725,11 @@ function initializeMainCalculator() {
 if (locations >= 2) {
     const savedAmount = originalPrice - price;
     let discountPercent = '';
+    let article = 'a'; // по умолчанию "a"
+    
     if (locations === 2) {
         discountPercent = '8%';
+        article = 'an'; // для 8% используем "an"
     } else if (locations === 3) {
         discountPercent = '10%';
     } else if (locations === 4) {
@@ -1727,7 +1737,7 @@ if (locations >= 2) {
     } else {
         discountPercent = '15%';
     }
-    discountText.innerHTML = `<i class="fas fa-tags"></i> Save <strong>$${savedAmount}</strong> with an <strong>${discountPercent} discount</strong>!`;
+    discountText.innerHTML = `<i class="fas fa-tags"></i> Save <strong>$${savedAmount}</strong> with ${article} <strong>${discountPercent} discount</strong>!`;
             discountText.style.color = '#1dd1a1';
         } else {
             discountText.innerHTML = `Individual bot base price: $${BASE_PRICE_PER_BOT}`;
