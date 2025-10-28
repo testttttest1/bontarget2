@@ -557,8 +557,9 @@
 .slider-container {
     position: relative;
     width: 100%;
-    margin: 70px 0 40px 0;
-    padding: 0;
+    max-width: 100%;
+    margin: 70px auto 40px auto;  /* ИЗМЕНЕНО: auto для центрирования */
+    padding: 0 15px;  /* ДОБАВЛЕНО: отступы по бокам */
 }
 
 /* Сама линия ползунка */
@@ -733,7 +734,7 @@
     /* Адаптивная коррекция для ползунка на мобильных */
     .custom-thumb-tracker {
         font-size: 40px; 
-        top: 22.5%;    
+        top: 20%;    
     }
     .custom-thumb-tracker::before {
         width: 40px; 
