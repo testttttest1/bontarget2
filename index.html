@@ -1260,17 +1260,6 @@
             font-size: 1.8rem;
         }
     }
-
-    /* Управление видимостью мобильного ползунка */
-.mobile-slider-container {
-    display: none;
-}
-
-@media (max-width: 992px) {
-    .mobile-slider-container {
-        display: block !important;
-    }
-}
 </style>
 </head>
 <body>
@@ -1405,8 +1394,8 @@
             </div>
             
             <p style="font-size: 0.95rem; color: #777; margin-top: 25px; margin-bottom: 25px; line-height: 1.4;">
-    <i class="fas fa-wrench" style="color: var(--color-primary); margin-right: 5px;"></i> **Maintenance:** <span id="leftCardMaintenancePrice">$69/month</span>
-</p>
+                <i class="fas fa-wrench" style="color: var(--color-primary); margin-right: 5px;"></i> **Maintenance:** $69/bot/month.
+            </p>
             
             <a onclick="openContactChoiceModal();" class="detail-cta" style="margin-top: 0; background: linear-gradient(45deg, var(--color-primary), var(--color-secondary)); color: white;">
                 Order My Bot
@@ -1420,31 +1409,6 @@
     <div style="text-align: center; padding: 15px; background: #f0f4f7; border-radius: 12px; margin-top: 15px;">
         <h4 style="color: var(--color-secondary); margin-bottom: 15px; font-size: 1.3rem;">💰 One-Time Fee</h4>
         <div style="font-size: 2.5rem; font-weight: 800; color: var(--color-secondary); margin-bottom: 20px;" id="rightCardOneTimePrice">$750</div>
-
-        <!-- Ползунок для мобильных устройств -->
-<div class="mobile-slider-container" style="display: none; margin: 25px 0;">
-    <label for="mobileLocationSlider" style="display: block; margin-bottom: 15px; font-size: 0.95rem; color: #555;">
-        Number of Locations/Bots: <span id="mobileLocationCount" style="color: var(--color-secondary); font-size: 1.4rem; font-weight: 700;">1</span>
-    </label>
-    
-    <div style="position: relative; margin: 60px 0 40px 0;">
-        <input type="range" min="1" max="5" value="1" class="slider" id="mobileLocationSlider">
-        
-        <div class="custom-thumb-tracker" id="mobileLocationSlider-tracker"></div>
-        
-        <div class="slider-labels">
-            <span class="label-item">1</span>
-            <span class="label-item">2</span>
-            <span class="label-item">3</span>
-            <span class="label-item">4</span>
-            <span class="label-item">5+</span>
-        </div>
-    </div>
-    
-    <div id="mobileDiscountText" class="discount-text" style="color: var(--color-accent); font-size: 0.9rem; margin-top: 10px; min-height: 40px;">
-        Individual bot base price: $750
-    </div>
-</div>
         
         <ul style="list-style: none; padding: 0; margin: 0 0 20px 0; text-align: left;">
             <li style="margin-bottom: 10px; font-size: 0.9rem; color: #333;">
@@ -1735,18 +1699,11 @@ function updateCustomThumbPosition(slider) {
 function initializeMainCalculator() {
     if (mainCalculatorInitialized) return;
 
-    // Получаем элементы ОБОИХ ползунков
     const slider = document.getElementById('locationSlider');
     const tracker = document.getElementById('locationSlider-tracker');
     const priceDisplay = document.getElementById('dynamicBotPrice');
     const locationCount = document.getElementById('locationCount');
     const discountText = document.getElementById('discountText');
-    
-    // Элементы МОБИЛЬНОГО ползунка
-    const mobileSlider = document.getElementById('mobileLocationSlider');
-    const mobileTracker = document.getElementById('mobileLocationSlider-tracker');
-    const mobileLocationCount = document.getElementById('mobileLocationCount');
-    const mobileDiscountText = document.getElementById('mobileDiscountText');
     
     const rightCardPrice = document.getElementById('rightCardOneTimePrice');
     const rightCardMaintenance = document.getElementById('rightCardMaintenancePrice');
@@ -1754,54 +1711,36 @@ function initializeMainCalculator() {
     if (!slider || !tracker) return;
 
     tracker.textContent = '🕴🏻';
-    if (mobileTracker) mobileTracker.textContent = '🕴🏻';
 
     function updateAll() {
-        // Берём значение из того ползунка, который изменился
         const locations = parseInt(slider.value, 10);
-        
-        // Синхронизируем оба ползунка
-        if (mobileSlider) mobileSlider.value = locations;
-        
         const price = PRICE_LIST[locations] || PRICE_LIST[5];
         const originalPrice = locations * BASE_PRICE_PER_BOT;
         const monthlyTotal = locations * MONTHLY_MAINTENANCE_PER_BOT;
 
         priceDisplay.textContent = `$${price}`;
         locationCount.textContent = locations;
-        if (mobileLocationCount) mobileLocationCount.textContent = locations;
 
-        if (locations >= 2) {
-            const savedAmount = originalPrice - price;
-            let discountPercent = '';
-            let article = 'a';
-            
-            if (locations === 2) {
-                discountPercent = '8%';
-                article = 'an';
-            } else if (locations === 3) {
-                discountPercent = '10%';
-            } else if (locations === 4) {
-                discountPercent = '12%';
-            } else {
-                discountPercent = '15%';
-            }
-            
-            const discountHTML = `<i class="fas fa-tags"></i> Save <strong>$${savedAmount}</strong> with ${article} <strong>${discountPercent} discount</strong>!`;
-            discountText.innerHTML = discountHTML;
+if (locations >= 2) {
+    const savedAmount = originalPrice - price;
+    let discountPercent = '';
+    let article = 'a'; // по умолчанию "a"
+    
+    if (locations === 2) {
+        discountPercent = '8%';
+        article = 'an'; // для 8% используем "an"
+    } else if (locations === 3) {
+        discountPercent = '10%';
+    } else if (locations === 4) {
+        discountPercent = '12%';
+    } else {
+        discountPercent = '15%';
+    }
+    discountText.innerHTML = `<i class="fas fa-tags"></i> Save <strong>$${savedAmount}</strong> with ${article} <strong>${discountPercent} discount</strong>!`;
             discountText.style.color = '#1dd1a1';
-            if (mobileDiscountText) {
-                mobileDiscountText.innerHTML = discountHTML;
-                mobileDiscountText.style.color = '#1dd1a1';
-            }
         } else {
-            const baseHTML = `Individual bot base price: $${BASE_PRICE_PER_BOT}`;
-            discountText.innerHTML = baseHTML;
+            discountText.innerHTML = `Individual bot base price: $${BASE_PRICE_PER_BOT}`;
             discountText.style.color = '#ff6b6b';
-            if (mobileDiscountText) {
-                mobileDiscountText.innerHTML = baseHTML;
-                mobileDiscountText.style.color = '#ff6b6b';
-            }
         }
 
         if (rightCardPrice) {
@@ -1811,48 +1750,83 @@ function initializeMainCalculator() {
             rightCardMaintenance.innerHTML = `$${MONTHLY_MAINTENANCE_PER_BOT}/bot × ${locations} = <strong>$${monthlyTotal}/month</strong>`;
         }
 
-        const leftCardMaintenance = document.getElementById('leftCardMaintenancePrice');
-        if (leftCardMaintenance) {
-            if (locations === 1) {
-                leftCardMaintenance.textContent = `$${monthlyTotal}/month`;
-            } else {
-                leftCardMaintenance.textContent = `$${MONTHLY_MAINTENANCE_PER_BOT}/bot × ${locations} = $${monthlyTotal}/month`;
-            }
-        }
-
         updateCustomThumbPosition(slider);
-        if (mobileSlider) updateCustomThumbPosition(mobileSlider);
     }
 
-    // Настройка drag & drop для ПЕРВОГО ползунка
-    setupSliderDragAndDrop(slider, tracker, updateAll);
+// =========================================================
+// ЛОГИКА ПЕРЕТАСКИВАНИЯ (DRAG & DROP) ДЛЯ ЭМОДЗИ-ТРЕКЕРА
+// =========================================================
+let isDragging = false;
+
+// Универсальная функция для обработки движения
+function handleMove(clientX) {
+    if (!isDragging) return;
+
+    const sliderContainer = slider.parentElement; 
+    const containerRect = sliderContainer.getBoundingClientRect();
     
-    // Настройка drag & drop для МОБИЛЬНОГО ползунка
-    if (mobileSlider && mobileTracker) {
-        setupSliderDragAndDrop(mobileSlider, mobileTracker, () => {
-            // Синхронизируем первый ползунок с мобильным
-            slider.value = mobileSlider.value;
-            updateAll();
-        });
-    }
+    let newX = clientX - containerRect.left;
 
+    if (newX < 0) newX = 0;
+    if (newX > containerRect.width) newX = containerRect.width;
+
+    const percent = newX / containerRect.width;
+    const min = parseInt(slider.min, 10);
+    const max = parseInt(slider.max, 10);
+    const range = max - min;
+    const newValue = Math.round(percent * range) + min;
+
+    slider.value = newValue;
+    updateAll(); 
+}
+
+// МЫШЬ: Начало
+tracker.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    e.preventDefault(); 
+});
+
+// МЫШЬ: Движение
+document.addEventListener('mousemove', (e) => {
+    handleMove(e.clientX);
+});
+
+// МЫШЬ: Завершение
+document.addEventListener('mouseup', () => {
+    isDragging = false;
+});
+
+// ТАЧ: Начало
+tracker.addEventListener('touchstart', (e) => {
+    isDragging = true;
+    e.preventDefault();
+});
+
+// ТАЧ: Движение
+document.addEventListener('touchmove', (e) => {
+    if (isDragging && e.touches.length > 0) {
+        handleMove(e.touches[0].clientX);
+    }
+}, { passive: false });
+
+// ТАЧ: Завершение
+document.addEventListener('touchend', () => {
+    isDragging = false;
+});
+// =========================================================
+
+    // Обработчик 'input' для обычного взаимодействия с ползунком
     slider.addEventListener('input', updateAll);
-    if (mobileSlider) {
-        mobileSlider.addEventListener('input', () => {
-            slider.value = mobileSlider.value;
-            updateAll();
-        });
-    }
     
+    // Первоначальный вызов
     updateAll();
     
-    window.addEventListener('resize', () => {
-        updateCustomThumbPosition(slider);
-        if (mobileSlider) updateCustomThumbPosition(mobileSlider);
-    });
+    // Дополнительный вызов для корректировки позиции при изменении размера окна
+    window.addEventListener('resize', () => updateCustomThumbPosition(slider));
     
     mainCalculatorInitialized = true;
 }
+
 function setupFaqToggle() {
     document.querySelectorAll('.faq-question').forEach(question => {
         question.addEventListener('click', () => {
