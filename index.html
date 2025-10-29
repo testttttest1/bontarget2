@@ -1394,8 +1394,8 @@
             </div>
             
             <p style="font-size: 0.95rem; color: #777; margin-top: 25px; margin-bottom: 25px; line-height: 1.4;">
-                <i class="fas fa-wrench" style="color: var(--color-primary); margin-right: 5px;"></i> **Maintenance:** $69/bot/month.
-            </p>
+    <i class="fas fa-wrench" style="color: var(--color-primary); margin-right: 5px;"></i> **Maintenance:** <span id="leftCardMaintenancePrice">$69/month</span>
+</p>
             
             <a onclick="openContactChoiceModal();" class="detail-cta" style="margin-top: 0; background: linear-gradient(45deg, var(--color-primary), var(--color-secondary)); color: white;">
                 Order My Bot
@@ -1409,6 +1409,31 @@
     <div style="text-align: center; padding: 15px; background: #f0f4f7; border-radius: 12px; margin-top: 15px;">
         <h4 style="color: var(--color-secondary); margin-bottom: 15px; font-size: 1.3rem;">💰 One-Time Fee</h4>
         <div style="font-size: 2.5rem; font-weight: 800; color: var(--color-secondary); margin-bottom: 20px;" id="rightCardOneTimePrice">$750</div>
+
+        <!-- Ползунок для мобильных устройств -->
+<div class="mobile-slider-container" style="display: none; margin: 25px 0;">
+    <label for="mobileLocationSlider" style="display: block; margin-bottom: 15px; font-size: 0.95rem; color: #555;">
+        Number of Locations/Bots: <span id="mobileLocationCount" style="color: var(--color-secondary); font-size: 1.4rem; font-weight: 700;">1</span>
+    </label>
+    
+    <div style="position: relative; margin: 60px 0 40px 0;">
+        <input type="range" min="1" max="5" value="1" class="slider" id="mobileLocationSlider">
+        
+        <div class="custom-thumb-tracker" id="mobileLocationSlider-tracker"></div>
+        
+        <div class="slider-labels">
+            <span class="label-item">1</span>
+            <span class="label-item">2</span>
+            <span class="label-item">3</span>
+            <span class="label-item">4</span>
+            <span class="label-item">5+</span>
+        </div>
+    </div>
+    
+    <div id="mobileDiscountText" class="discount-text" style="color: var(--color-accent); font-size: 0.9rem; margin-top: 10px; min-height: 40px;">
+        Individual bot base price: $750
+    </div>
+</div>
         
         <ul style="list-style: none; padding: 0; margin: 0 0 20px 0; text-align: left;">
             <li style="margin-bottom: 10px; font-size: 0.9rem; color: #333;">
@@ -1749,6 +1774,15 @@ if (locations >= 2) {
         if (rightCardMaintenance) {
             rightCardMaintenance.innerHTML = `$${MONTHLY_MAINTENANCE_PER_BOT}/bot × ${locations} = <strong>$${monthlyTotal}/month</strong>`;
         }
+
+        const leftCardMaintenance = document.getElementById('leftCardMaintenancePrice');
+if (leftCardMaintenance) {
+    if (locations === 1) {
+        leftCardMaintenance.textContent = `$${monthlyTotal}/month`;
+    } else {
+        leftCardMaintenance.textContent = `$${MONTHLY_MAINTENANCE_PER_BOT}/bot × ${locations} = $${monthlyTotal}/month`;
+    }
+}
 
         updateCustomThumbPosition(slider);
     }
