@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>BonTarget — Системы Telegram Ботов для Бизнеса</title>
+  <title>BonTarget — Put Your Business on Autopilot</title>
   <link rel="icon" href="https://i.ibb.co/tkhNP2P/Bon-Target-Logo-round.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
@@ -1095,6 +1095,26 @@
 }
 }
 
+
+/* LARGE DESKTOP */
+@media (min-width: 1440px) {
+    section {
+        max-width: 1400px;
+    }
+
+    header h1 {
+        font-size: 4.2rem;
+    }
+
+    header p {
+        font-size: 1.4rem;
+    }
+
+    .portfolio-grid {
+        gap: 50px;
+    }
+}
+
 /* MOBILE */
     @media (max-width: 768px) {
         header {
@@ -1113,10 +1133,12 @@
         }
 
         .btn {
-            padding: 15px 35px;
-            font-size: 1.05rem;
-            margin-top: 40px;
-        }
+    padding: 16px 40px;
+    font-size: 1.1rem;
+    margin-top: 35px;
+    width: auto;
+    max-width: 90%;
+}
 
 .hero-stats {
     flex-direction: column;
@@ -1243,23 +1265,46 @@
 }
     }
 
-    @media (max-width: 480px) {
-        header h1 {
-            font-size: 2rem;
-        }
-
-        header p {
-            font-size: 1rem;
-        }
-
-        .step {
-            flex: 1 1 100%;
-        }
-
-        section h2 {
-            font-size: 1.8rem;
-        }
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8rem;
+        line-height: 1.15;
     }
+
+    header p {
+        font-size: 0.95rem;
+    }
+
+    .btn {
+        font-size: 1rem;
+        padding: 14px 30px;
+    }
+
+    .step {
+        flex: 1 1 100%;
+        padding: 18px 12px;
+    }
+
+    .step h3 {
+        font-size: 1rem;
+    }
+
+    section h2 {
+        font-size: 1.8rem;
+    }
+
+    .price-card h3 {
+        font-size: 1.6rem;
+    }
+
+    .price-card .price {
+        font-size: 2.2rem;
+    }
+
+    .modal-content-base {
+        padding: 25px 15px;
+    }
+}
 </style>
 </head>
 <body>
@@ -1438,11 +1483,7 @@
         <ul style="list-style: none; padding: 0; margin: 0 0 20px 0; text-align: left;">
             <li style="margin-bottom: 10px; font-size: 0.9rem; color: #333;">
                 <i class="fas fa-check-circle" style="color: #1dd1a1; margin-right: 8px;"></i>
-                Custom bot development
-            </li>
-            <li style="margin-bottom: 10px; font-size: 0.9rem; color: #333;">
-                <i class="fas fa-check-circle" style="color: #1dd1a1; margin-right: 8px;"></i>
-                Payment integration (PayPal, Stripe)
+                Fast bot development
             </li>
             <li style="margin-bottom: 10px; font-size: 0.9rem; color: #333;">
                 <i class="fas fa-check-circle" style="color: #1dd1a1; margin-right: 8px;"></i>
@@ -1450,11 +1491,15 @@
             </li>
             <li style="margin-bottom: 10px; font-size: 0.9rem; color: #333;">
                 <i class="fas fa-check-circle" style="color: #1dd1a1; margin-right: 8px;"></i>
-                Booking & scheduling system
+                Payment integration (PayPal)
             </li>
             <li style="margin-bottom: 10px; font-size: 0.9rem; color: #333;">
                 <i class="fas fa-check-circle" style="color: #1dd1a1; margin-right: 8px;"></i>
-                Full testing & deployment
+                Custom workflow setup
+            </li>
+            <li style="margin-bottom: 10px; font-size: 0.9rem; color: #333;">
+                <i class="fas fa-check-circle" style="color: #1dd1a1; margin-right: 8px;"></i>
+                Launch & performance testing
             </li>
         </ul>
         
@@ -1487,51 +1532,51 @@
 </section>
 
   <section id="faq" class="reveal-item">
-    <h2>Часто Задаваемые Вопросы</h2>
+    <h2>FAQ</h2>
     <div class="faq-container">
         
         <div class="faq-item reveal-item">
             <div class="faq-question">
-                Сколько времени займет разработка моего бота? <i class="fas fa-chevron-down"></i>
+                How long does development take?<i class="fas fa-chevron-down"></i>
             </div>
             <div class="faq-answer">
-                <p>Разработка Базового Бота занимает 1-2 дня максимум. Создание Продвинутой Системы — 3-5 дней максимум. Эти сроки гарантированы при условии, что заказчик остается на связи для оперативного согласования.</p>
+                <p>Development takes up to 5 business days. This timeline is guaranteed as long as the client is available for prompt approvals.</p>
             </div>
         </div>
         
         <div class="faq-item reveal-item">
             <div class="faq-question">
-                Какие гарантии вы предоставляете и что входит в поддержку? <i class="fas fa-chevron-down"></i>
+                What guarantees do you provide and what is included in support?<i class="fas fa-chevron-down"></i>
             </div>
             <div class="faq-answer">
-                <p>В нашу поддержку входит полное сопровождение работы бота и его редакция при необходимости. Мы обеспечиваем стабильность системы, чтобы она работала без сбоев. Если возникнут вопросы или потребуется мелкая правка логики, мы всегда на связи.</p>
+                <p>Our support includes full maintenance of your system and adjustments when needed. We ensure the system runs smoothly without interruptions. If any questions arise or minor logic changes are required, we are always available to assist.</p>
             </div>
         </div>
         
         <div class="faq-item reveal-item">
             <div class="faq-question">
-                С какими сервисами вы можете интегрировать функционал бота? <i class="fas fa-chevron-down"></i>
+                What services can the system integrate with?<i class="fas fa-chevron-down"></i>
             </div>
             <div class="faq-answer">
-                <p>Мы интегрируем бота с Google Sheets для удобного сбора и хранения данных. Кроме того, мы работаем практически со всеми платежными системами (эквайринг), при условии, что у клиента есть активный аккаунт и платежная страница.</p>
+                <p>We integrate the system with Google Sheets for easy data collection and storage. Payment integration is available via PayPal, provided the client has an active account and payment page.</p>
             </div>
         </div>
         
         <div class="faq-item reveal-item">
             <div class="faq-question">
-                Потребуется ли мне технический специалист для управления ботом после запуска? <i class="fas fa-chevron-down"></i>
+                Do I need a technical specialist to operate the system after launch?<i class="fas fa-chevron-down"></i>
             </div>
             <div class="faq-answer">
-                <p>Нет, не потребуется. Мы создаем максимально удобные и интуитивно понятные системы. Все управление осуществляется через простой интерфейс. Если у вас возникнут вопросы, вы всегда можете обратиться в нашу службу поддержки.</p>
+                <p>No, you won’t need a technical specialist. We handle all adjustments and technical maintenance. The system is intuitive and easy to use, and our support team is always available if you have any questions.</p>
             </div>
         </div>
         
         <div class="faq-item reveal-item">
             <div class="faq-question">
-                Как происходит оплата за разработку? <i class="fas fa-chevron-down"></i>
+                How do I pay for the development?<i class="fas fa-chevron-down"></i>
             </div>
             <div class="faq-answer">
-                <p>Мы работаем по принципу 100% аванса. Это позволяет нам сразу же приступить к работе и гарантировать быстрое выполнение проекта без задержек.</p>
+                <p>Full payment is required upfront. This lets us start immediately and ensures fast delivery. Payment is made via Instagram DM or through a Telegram chat.</p>
             </div>
         </div>
         
@@ -1539,25 +1584,25 @@
   </section>
 
   <footer>
-    <p>Связь: 
+    <p>Contact Us: 
         <a class="socials" href="https://t.me/bontarget" target="_blank"><i class="fab fa-telegram-plane"></i> Telegram</a> | 
         <a class="socials" href="https://www.instagram.com/bontarget.eu" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
     </p>
-    <p>&copy; 2025 BonTarget. Все права защищены.</p>
+    <p>&copy; 2025 BonTarget. All rights reserved.</p>
   </footer>
 
   <!-- Contact Modal -->
   <div id="contactChoiceModal" class="modal-backdrop" onclick="closeModalByClick(event, 'contactChoiceModal')">
     <div class="modal-content-base">
         <span class="modal-close" onclick="closeModal('contactChoiceModal')">&times;</span>
-        <h3>💬 Выберите удобный способ связи</h3>
-        <p>Напишите нам, чтобы обсудить ваш проект, получить консультацию или запросить индивидуальный расчет.</p>
+        <h3>💬 Choose how to reach us</h3>
+        <p>Discuss your project, get a consultation, or request a payment link.</p>
         <div class="contact-buttons">
             <a href="https://t.me/bontarget" target="_blank" class="contact-button telegram" onclick="closeModal('contactChoiceModal')">
-                <i class="fab fa-telegram-plane"></i> Написать в Telegram
+                <i class="fab fa-telegram-plane"></i> Telegram Chat
             </a>
             <a href="https://www.instagram.com/direct/t/340282366841710300949128036034114756619" target="_blank" class="contact-button instagram" onclick="closeModal('contactChoiceModal')">
-                <i class="fab fa-instagram"></i> Написать в Instagram Direct
+                <i class="fab fa-instagram"></i> Instagram Direct
             </a>
         </div>
     </div>
@@ -1605,7 +1650,6 @@
           <img src="https://i.ibb.co/23wSLGyg/Chat-GPT-Image-21-2025-17-33-24.png" alt="Тестирование">
       </div>
       <p>We make sure everything works smoothly before launch.</p>
-      <a onclick="openContactChoiceModal(); closeModal('stepModal4');" class="detail-cta">Get Started</a>
     </div>
   </div>
 
@@ -1749,11 +1793,11 @@ function initializeMainCalculator() {
 if (locations >= 2) {
     const savedAmount = originalPrice - price;
     let discountPercent = '';
-    let article = 'a'; // по умолчанию "a"
-    
+    let article = 'a\u00A0'; // неразрывный пробел
+
     if (locations === 2) {
         discountPercent = '8%';
-        article = 'an'; // для 8% используем "an"
+        article = 'an\u00A0';
     } else if (locations === 3) {
         discountPercent = '10%';
     } else if (locations === 4) {
@@ -1761,9 +1805,13 @@ if (locations >= 2) {
     } else {
         discountPercent = '15%';
     }
-    discountText.innerHTML = `<i class="fas fa-tags"></i> Save <strong>$${savedAmount}</strong> with ${article} <strong>${discountPercent} discount</strong>!`;
-            discountText.style.color = '#1dd1a1';
-        } else {
+
+    console.log('DEBUG article:', JSON.stringify(article)); // проверка
+    discountText.innerHTML =
+      `<i class="fas fa-tags"></i> Save <strong>$${savedAmount}</strong> with ${article}<strong>${discountPercent} discount</strong>!`;
+    discountText.style.color = '#1dd1a1';
+}
+     else {
             discountText.innerHTML = `Individual bot base price: $${BASE_PRICE_PER_BOT}`;
             discountText.style.color = '#ff6b6b';
         }
