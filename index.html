@@ -1303,6 +1303,45 @@
         padding: 25px 15px;
     }
 }
+
+/* ТОЛЬКО ДЛЯ ANDROID/SAMSUNG */
+.android-device .custom-thumb-tracker {
+    font-size: 35px !important;
+    top: 50% !important;
+}
+
+.android-device .slider-container {
+    margin: 40px 0 25px 0 !important;
+}
+
+.android-device .price-card {
+    min-width: 280px !important;
+}
+
+.android-device .portfolio-image {
+    width: 100% !important;
+    height: 200px !important;
+}
+
+.android-device header h1 {
+    font-size: 1.85rem !important;
+}
+
+.android-device .modal-content-details {
+    padding: 20px 15px !important;
+    max-height: 90vh !important;
+}
+
+@media (max-width: 380px) {
+    .android-device .custom-thumb-tracker {
+        font-size: 28px !important;
+    }
+    
+    .android-device header h1 {
+        font-size: 1.65rem !important;
+    }
+}
+
 </style>
 </head>
 <body>
@@ -1693,6 +1732,12 @@
   </div>
 
   <script>
+
+    // Определяем Samsung/Android
+if (/android/i.test(navigator.userAgent)) {
+    document.body.classList.add('android-device');
+}
+
     const POPUP_CLOSED_KEY = 'contactPopupClosed';
 const BASE_PRICE_PER_BOT = 750;
 const MONTHLY_MAINTENANCE_PER_BOT = 69;
