@@ -1306,7 +1306,7 @@
 
 /* ТОЛЬКО ДЛЯ ANDROID/SAMSUNG */
 .android-device .custom-thumb-tracker {
-    font-size: 35px !important;
+    font-size: 55px !important;
     top: 20% !important;
 }
 
@@ -1421,16 +1421,6 @@
     <div class="portfolio-grid">
       <div class="portfolio-item reveal-item" onclick="openPortfolioModal('portfolioModal1')">
         <div class="portfolio-image">
-            <img src="https://i.ibb.co/FL0qyH8y/image.png" alt="Payment Collection">
-        </div>
-        <div class="portfolio-content">
-          <h3>Collecting Payments</h3>
-          <p>Accept payments instantly, directly inside Telegram...</p>
-        </div>
-      </div>
-
-      <div class="portfolio-item reveal-item" onclick="openPortfolioModal('portfolioModal2')">
-        <div class="portfolio-image">
             <img src="https://i.ibb.co/Pf96PPn/2.png" alt="Scheduling">
         </div>
         <div class="portfolio-content">
@@ -1439,13 +1429,23 @@
         </div>
       </div>
 
-      <div class="portfolio-item reveal-item" onclick="openPortfolioModal('portfolioModal3')">
+      <div class="portfolio-item reveal-item" onclick="openPortfolioModal('portfolioModal2')">
         <div class="portfolio-image">
-            <img src="https://i.ibb.co/0p1KDDdQ/image.png" alt="Sales Funnel">
+            <img src="https://i.ibb.co/Xkjc0m0h/image.png" alt="ai analysis">
         </div>
         <div class="portfolio-content">
-          <h3>Sales automation funnel</h3>
-          <p>Turn leads into paying clients automatically...</p>
+          <h3>Monthly ai analysis</h3>
+          <p>Each month we send you a detailed ai analyse...</p>
+        </div>
+      </div>
+
+      <div class="portfolio-item reveal-item" onclick="openPortfolioModal('portfolioModal3')">
+        <div class="portfolio-image">
+            <img src="https://i.ibb.co/FL0qyH8y/image.png" alt="Payment Collection">
+        </div>
+        <div class="portfolio-content">
+          <h3>Collecting Payments</h3>
+          <p>Accept payments instantly, directly inside Telegram...</p>
         </div>
       </div>
     </div>
@@ -1567,7 +1567,7 @@
             
             <ul style="list-style: none; padding: 0; margin: 15px 0 0 0; text-align: left;">
                 <li style="margin-bottom: 8px; font-size: 0.85rem; color: #555;">
-                    <i class="fas fa-server" style="color: var(--color-accent); margin-right: 8px;"></i>
+                    <i class="fas fa-clock" style="color: var(--color-accent); margin-right: 8px;"></i>
                     24/7 hosting & monitoring
                 </li>
                 <li style="margin-bottom: 8px; font-size: 0.85rem; color: #555;">
@@ -1575,11 +1575,11 @@
                     Bug fixes & support
                 </li>
                 <li style="margin-bottom: 8px; font-size: 0.85rem; color: #555;">
-                    <i class="fas fa-sync-alt" style="color: var(--color-accent); margin-right: 8px;"></i>
-                    Minor edits
+                    <i class="fas fa-cut" style="color: var(--color-accent); margin-right: 8px;"></i>
+                    minor edits (small non-technical changes only)
 
                     <li style="margin-bottom: 8px; font-size: 0.85rem; color: #555;">
-                    <i class="fas fa-sync-alt" style="color: var(--color-accent); margin-right: 8px;"></i>
+                    <i class="fas fa-robot" style="color: var(--color-accent); margin-right: 8px;"></i>
                     Monthly ai analyses
                 </li>
             </ul>
@@ -1605,13 +1605,22 @@
                 <p>Development takes up to 5 business days. This timeline is guaranteed as long as the client is available for prompt approvals.</p>
             </div>
         </div>
+
+                <div class="faq-item reveal-item">
+            <div class="faq-question">
+                What are "Minor Edits"?<i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Minor edits include small, non-technical changes such as updating text, buttons, or message content. Requests that involve logic updates, AI integrations, or connected table changes are not considered minor edits and are billed separately. The cost for such updates is calculated individually, usually up to $350, depending on scope and complexity.</p>
+            </div>
+        </div>
         
         <div class="faq-item reveal-item">
             <div class="faq-question">
-                What guarantees do you provide and what is included in support?<i class="fas fa-chevron-down"></i>
+                What guarantees do you provide and what’s included in support?<i class="fas fa-chevron-down"></i>
             </div>
             <div class="faq-answer">
-                <p>Our support includes full maintenance of your system and adjustments when needed. We ensure the system runs smoothly without interruptions. If any questions arise or minor logic changes are required, we are always available to assist.</p>
+                <p>Our support covers full system maintenance, bug fixes, and ongoing monitoring to ensure everything runs smoothly without interruptions. We guarantee the reliability of your system and handle any issues caused by our side (included under your monthly plan). Minor edits are also included under your monthly plan, while major logic or feature changes are billed separately.</p>
             </div>
         </div>
         
@@ -1720,10 +1729,10 @@
     <div class="modal-content-base">
       <span class="modal-close" onclick="closeModal('portfolioModal1')">&times;</span>
       <div class="modal-image-container">
-        <img src="https://i.ibb.co/FL0qyH8y/image.png" alt="Payment Collection">
+        <img src="https://i.ibb.co/Pf96PPn/2.png" alt="Scheduling">
       </div>
-      <h3>Collecting Payments</h3>
-      <p>Collect payments seamlessly through Telegram, instantly confirming transactions and sending receipts automatically. Works with PayPal now, and can integrate with other payment systems in the future. Perfect for bookings, sales, or any service workflow.</p>
+      <h3>Scheduling Through Telegram</h3>
+      <p>The bot handles all client bookings and updates your calendar automatically. Although shown with barbershops and salons, it works for any niche where appointments are needed, from fitness studios to clinics or consulting services.</p>
       <a onclick="openContactChoiceModal(); closeModal('portfolioModal1');" class="detail-cta">Order a similar solution</a>
     </div>
   </div>
@@ -1732,9 +1741,9 @@
     <div class="modal-content-base">
       <span class="modal-close" onclick="closeModal('portfolioModal2')">&times;</span>
       <div class="modal-image-container">
-        <img src="https://i.ibb.co/Pf96PPn/2.png" alt="Scheduling">
+        <img src="https://i.ibb.co/Xkjc0m0h/image.png" alt="ai analysis">
       </div>
-      <h3>Scheduling Through Telegram</h3>
+      <h3>Monthly ai analysis</h3>
       <p>The bot handles all client bookings and updates your calendar automatically. Although shown with barbershops and salons, it works for any niche where appointments are needed, from fitness studios to clinics or consulting services.</p>
       <a onclick="openContactChoiceModal(); closeModal('portfolioModal2');" class="detail-cta">Order a similar solution</a>
     </div>
@@ -1744,10 +1753,10 @@
     <div class="modal-content-base">
       <span class="modal-close" onclick="closeModal('portfolioModal3')">&times;</span>
       <div class="modal-image-container">
-        <img src="https://i.ibb.co/0p1KDDdQ/image.png" alt="Sales Funnel">
+        <img src="https://i.ibb.co/FL0qyH8y/image.png" alt="Payment Collection">
       </div>
-      <h3>Sales automation funnel</h3>
-      <p>Turn every lead into a structured workflow that automates follow-ups, updates records, and tracks progress. Ideal for any business where sales, appointments, or services are offered, from education and healthcare to shops and service providers.</p>
+      <h3>Collecting Payments</h3>
+      <p>Collect payments seamlessly through Telegram, instantly confirming transactions and sending receipts automatically. Works with PayPal now, and can integrate with other payment systems in the future. Perfect for bookings, sales, or any service workflow.</p>
       <a onclick="openContactChoiceModal(); closeModal('portfolioModal3');" class="detail-cta">Order a similar solution</a>
     </div>
   </div>
